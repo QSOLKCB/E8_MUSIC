@@ -128,4 +128,4 @@ Tests cover the 240-root construction, norm and family counts, 156-value golden 
 
 ## Licence
 
-MIT License. Copyright 2026 Trent Slade / QSOL-IMC.
+Mozilla Public License Version 2.0. Copyright 2026 Trent Slade / QSOL-IMC.
