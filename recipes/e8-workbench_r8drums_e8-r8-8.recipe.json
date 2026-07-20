@@ -1,0 +1,2146 @@
+{
+  "claimBoundary": "Mathematical/model fixtures drive an authored musical receiver. WAV parameters are not intrinsic E8 or qutrit properties.",
+  "createdUtc": "2026-07-20T13:57:28.627Z",
+  "eventPreview": [
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 0",
+      "time": 0,
+      "velocity": 0.5579999999999999,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 0",
+      "time": 0,
+      "velocity": 0.5579999999999999,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 4",
+      "time": 0.14423076923076922,
+      "velocity": 0.5291121893174375,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 4",
+      "time": 0.14423076923076922,
+      "velocity": 0.5291121893174375,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 8",
+      "time": 0.28846153846153844,
+      "velocity": 0.5112585404550416,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 8",
+      "time": 0.28846153846153844,
+      "velocity": 0.5112585404550416,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 12",
+      "time": 0.43269230769230765,
+      "velocity": 0.500224378634875,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 12",
+      "time": 0.43269230769230765,
+      "velocity": 0.500224378634875,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 16",
+      "time": 0.5769230769230769,
+      "velocity": 0.4934048915926457,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 16",
+      "time": 0.5769230769230769,
+      "velocity": 0.4934048915926457,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 20",
+      "time": 0.721153846153846,
+      "velocity": 0.48919021681470853,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 20",
+      "time": 0.721153846153846,
+      "velocity": 0.48919021681470853,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 24",
+      "time": 0.8653846153846153,
+      "velocity": 0.4865854045504164,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 24",
+      "time": 0.8653846153846153,
+      "velocity": 0.4865854045504164,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 25",
+      "time": 1.0096153846153846,
+      "velocity": 0.478156054994542,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 25",
+      "time": 1.0096153846153846,
+      "velocity": 0.6641056319368639,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 21",
+      "time": 1.1538461538461537,
+      "velocity": 0.4755512427302498,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 21",
+      "time": 1.1538461538461537,
+      "velocity": 0.660487837125347,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 17",
+      "time": 1.298076923076923,
+      "velocity": 0.47133656795231255,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 17",
+      "time": 1.298076923076923,
+      "velocity": 0.6546341221559897,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 13",
+      "time": 1.442307692307692,
+      "velocity": 0.4645170809100833,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 13",
+      "time": 1.442307692307692,
+      "velocity": 0.6451626123751157,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 9",
+      "time": 1.5865384615384615,
+      "velocity": 0.4534829190899167,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 9",
+      "time": 1.5865384615384615,
+      "velocity": 0.6298373876248844,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 5",
+      "time": 1.7307692307692306,
+      "velocity": 0.43562927022752085,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 5",
+      "time": 1.7307692307692306,
+      "velocity": 0.605040653093779,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 0,
+      "pan": -0.82,
+      "source": "E8 root 1",
+      "time": 1.8749999999999998,
+      "velocity": 0.4067414595449584,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 1",
+      "time": 1.8749999999999998,
+      "velocity": 0.5649186938124422,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 143",
+      "time": 2.1634615384615383,
+      "velocity": 0.7024186938124422,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 159",
+      "time": 2.3076923076923075,
+      "velocity": 0.6965649788430849,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 159",
+      "time": 2.3076923076923075,
+      "velocity": 0.5572519830744679,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 215",
+      "time": 2.884615384615384,
+      "velocity": 0.6776219592813368,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 215",
+      "time": 2.884615384615384,
+      "velocity": 0.5420975674250695,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 119",
+      "time": 3.0288461538461537,
+      "velocity": 0.6622967345311054,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 219",
+      "time": 3.4615384615384612,
+      "velocity": 0.6622967345311054,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 219",
+      "time": 3.4615384615384612,
+      "velocity": 0.5298373876248843,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 123",
+      "time": 3.6057692307692304,
+      "velocity": 0.646971509780874,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 227",
+      "time": 3.7499999999999996,
+      "velocity": 0.6528252247502313,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 131",
+      "time": 3.8942307692307687,
+      "velocity": 0.6375,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 131",
+      "time": 3.8942307692307687,
+      "velocity": 0.6375,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 147",
+      "time": 4.038461538461538,
+      "velocity": 0.6316462850306428,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 147",
+      "time": 4.038461538461538,
+      "velocity": 0.5053170280245143,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 179",
+      "time": 4.1826923076923075,
+      "velocity": 0.6280284902191259,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 205",
+      "time": 4.471153846153846,
+      "velocity": 0.6433537149693572,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 221",
+      "time": 4.615384615384615,
+      "velocity": 0.51,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 125",
+      "time": 4.759615384615384,
+      "velocity": 0.6221747752497686,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 229",
+      "time": 4.903846153846153,
+      "velocity": 0.628028490219126,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 133",
+      "time": 5.0480769230769225,
+      "velocity": 0.6127032654688946,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 133",
+      "time": 5.0480769230769225,
+      "velocity": 0.6127032654688946,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 149",
+      "time": 5.192307692307692,
+      "velocity": 0.48547964039962993,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 181",
+      "time": 5.336538461538461,
+      "velocity": 0.6032317556880205,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 181",
+      "time": 5.336538461538461,
+      "velocity": 0.6032317556880205,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 137",
+      "time": 5.624999999999999,
+      "velocity": 0.5973780407186633,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 137",
+      "time": 5.624999999999999,
+      "velocity": 0.5973780407186633,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 153",
+      "time": 5.769230769230768,
+      "velocity": 0.591524325749306,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 153",
+      "time": 5.769230769230768,
+      "velocity": 0.591524325749306,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 153",
+      "time": 5.769230769230768,
+      "velocity": 0.47321946059944486,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 161",
+      "time": 6.0576923076923075,
+      "velocity": 0.582052815968432,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 193",
+      "time": 6.201923076923077,
+      "velocity": 0.5784350211569151,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 209",
+      "time": 6.346153846153846,
+      "velocity": 0.5725813061875579,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 209",
+      "time": 6.346153846153846,
+      "velocity": 0.4580650449500463,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 113",
+      "time": 6.490384615384615,
+      "velocity": 0.5572560814373265,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 113",
+      "time": 6.490384615384615,
+      "velocity": 0.5572560814373265,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 206",
+      "time": 6.778846153846153,
+      "velocity": 0.6032317556880205,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 222",
+      "time": 6.9230769230769225,
+      "velocity": 0.47790243257493065,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 126",
+      "time": 7.067307692307692,
+      "velocity": 0.582052815968432,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 230",
+      "time": 7.211538461538461,
+      "velocity": 0.5879065309377892,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 230",
+      "time": 7.211538461538461,
+      "velocity": 0.5879065309377892,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 134",
+      "time": 7.35576923076923,
+      "velocity": 0.5725813061875579,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 150",
+      "time": 7.499999999999999,
+      "velocity": 0.5667275912182006,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 150",
+      "time": 7.499999999999999,
+      "velocity": 0.4533820729745605,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 182",
+      "time": 7.644230769230768,
+      "velocity": 0.5631097964066838,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 182",
+      "time": 7.644230769230768,
+      "velocity": 0.5631097964066838,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 234",
+      "time": 7.788461538461537,
+      "velocity": 0.5725813061875578,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 154",
+      "time": 8.076923076923077,
+      "velocity": 0.5514023664679693,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 154",
+      "time": 8.076923076923077,
+      "velocity": 0.5514023664679693,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 154",
+      "time": 8.076923076923077,
+      "velocity": 0.44112189317437545,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 186",
+      "time": 8.221153846153845,
+      "velocity": 0.5477845716564524,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 186",
+      "time": 8.221153846153845,
+      "velocity": 0.5477845716564524,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 194",
+      "time": 8.509615384615383,
+      "velocity": 0.5383130618755783,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 194",
+      "time": 8.509615384615383,
+      "velocity": 0.5383130618755783,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 210",
+      "time": 8.653846153846153,
+      "velocity": 0.5324593469062211,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 210",
+      "time": 8.653846153846153,
+      "velocity": 0.4259674775249769,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 114",
+      "time": 8.798076923076922,
+      "velocity": 0.5171341221559898,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 236",
+      "time": 8.942307692307692,
+      "velocity": 0.5477845716564524,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 140",
+      "time": 9.08653846153846,
+      "velocity": 0.5324593469062211,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 156",
+      "time": 9.23076923076923,
+      "velocity": 0.5266056319368638,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 156",
+      "time": 9.23076923076923,
+      "velocity": 0.5266056319368638,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 156",
+      "time": 9.23076923076923,
+      "velocity": 0.4212845055494911,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 188",
+      "time": 9.375,
+      "velocity": 0.522987837125347,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 196",
+      "time": 9.663461538461538,
+      "velocity": 0.513516327344473,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 212",
+      "time": 9.807692307692307,
+      "velocity": 0.5076626123751157,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 212",
+      "time": 9.807692307692307,
+      "velocity": 0.5076626123751157,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 212",
+      "time": 9.807692307692307,
+      "velocity": 0.4061300899000926,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 116",
+      "time": 9.951923076923077,
+      "velocity": 0.5076626123751157,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 168",
+      "time": 10.096153846153845,
+      "velocity": 0.5018088974057584,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 200",
+      "time": 10.240384615384615,
+      "velocity": 0.5018088974057584,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 216",
+      "time": 10.384615384615383,
+      "velocity": 0.5076626123751157,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 216",
+      "time": 10.384615384615383,
+      "velocity": 0.4061300899000926,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 120",
+      "time": 10.528846153846153,
+      "velocity": 0.522987837125347,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 120",
+      "time": 10.528846153846153,
+      "velocity": 0.522987837125347,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 224",
+      "time": 10.673076923076922,
+      "velocity": 0.5171341221559898,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 224",
+      "time": 10.673076923076922,
+      "velocity": 0.5171341221559898,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 128",
+      "time": 10.817307692307692,
+      "velocity": 0.5324593469062211,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 128",
+      "time": 10.817307692307692,
+      "velocity": 0.5324593469062211,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 144",
+      "time": 10.96153846153846,
+      "velocity": 0.5383130618755784,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 144",
+      "time": 10.96153846153846,
+      "velocity": 0.5383130618755784,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 144",
+      "time": 10.96153846153846,
+      "velocity": 0.4306504495004627,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 176",
+      "time": 11.10576923076923,
+      "velocity": 0.5419308566870952,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 176",
+      "time": 11.10576923076923,
+      "velocity": 0.5419308566870952,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 28",
+      "time": 11.249999999999998,
+      "velocity": 0.48237072977247913,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 28",
+      "time": 11.249999999999998,
+      "velocity": 0.48237072977247913,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 32",
+      "time": 11.394230769230768,
+      "velocity": 0.4645170809100833,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 32",
+      "time": 11.394230769230768,
+      "velocity": 0.4645170809100833,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 36",
+      "time": 11.538461538461537,
+      "velocity": 0.4534829190899167,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 36",
+      "time": 11.538461538461537,
+      "velocity": 0.4534829190899167,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 36",
+      "time": 11.538461538461537,
+      "velocity": 0.5038699100999076,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 40",
+      "time": 11.682692307692307,
+      "velocity": 0.4466634320476873,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 40",
+      "time": 11.682692307692307,
+      "velocity": 0.4466634320476873,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 44",
+      "time": 11.826923076923077,
+      "velocity": 0.4424487572697502,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 44",
+      "time": 11.826923076923077,
+      "velocity": 0.4424487572697502,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 48",
+      "time": 11.971153846153845,
+      "velocity": 0.439843945005458,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 48",
+      "time": 11.971153846153845,
+      "velocity": 0.439843945005458,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 49",
+      "time": 12.115384615384615,
+      "velocity": 0.4314145954495836,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 49",
+      "time": 12.115384615384615,
+      "velocity": 0.5991869381244217,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 49",
+      "time": 12.115384615384615,
+      "velocity": 0.47934955049953737,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 45",
+      "time": 12.259615384615383,
+      "velocity": 0.42880978318529145,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 45",
+      "time": 12.259615384615383,
+      "velocity": 0.5955691433129048,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 41",
+      "time": 12.403846153846153,
+      "velocity": 0.42459510840735426,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 41",
+      "time": 12.403846153846153,
+      "velocity": 0.5897154283435476,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 37",
+      "time": 12.548076923076922,
+      "velocity": 0.4177756213651249,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 37",
+      "time": 12.548076923076922,
+      "velocity": 0.5802439185626735,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 33",
+      "time": 12.692307692307692,
+      "velocity": 0.4067414595449584,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 33",
+      "time": 12.692307692307692,
+      "velocity": 0.5649186938124422,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 33",
+      "time": 12.692307692307692,
+      "velocity": 0.4519349550499538,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 1,
+      "pan": -0.5857142857142857,
+      "source": "E8 root 29",
+      "time": 12.83653846153846,
+      "velocity": 0.38888781068256245,
+      "voice": "snare"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 29",
+      "time": 12.83653846153846,
+      "velocity": 0.5401219592813368,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 52",
+      "time": 12.98076923076923,
+      "velocity": 0.43562927022752085,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 52",
+      "time": 12.98076923076923,
+      "velocity": 0.43562927022752085,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 56",
+      "time": 13.124999999999998,
+      "velocity": 0.42459510840735426,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 56",
+      "time": 13.124999999999998,
+      "velocity": 0.42459510840735426,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 60",
+      "time": 13.269230769230768,
+      "velocity": 0.4177756213651249,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 60",
+      "time": 13.269230769230768,
+      "velocity": 0.4177756213651249,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 60",
+      "time": 13.269230769230768,
+      "velocity": 0.46419513485013886,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 64",
+      "time": 13.413461538461537,
+      "velocity": 0.4135609465871877,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 64",
+      "time": 13.413461538461537,
+      "velocity": 0.4135609465871877,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 68",
+      "time": 13.557692307692307,
+      "velocity": 0.4109561343228955,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 68",
+      "time": 13.557692307692307,
+      "velocity": 0.4109561343228955,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 69",
+      "time": 13.701923076923075,
+      "velocity": 0.40252678476702114,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 69",
+      "time": 13.701923076923075,
+      "velocity": 0.5590649788430849,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 65",
+      "time": 13.846153846153845,
+      "velocity": 0.39992197250272904,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 65",
+      "time": 13.846153846153845,
+      "velocity": 0.5554471840315681,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 65",
+      "time": 13.846153846153845,
+      "velocity": 0.4443577472252545,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 61",
+      "time": 13.990384615384615,
+      "velocity": 0.3957072977247918,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 61",
+      "time": 13.990384615384615,
+      "velocity": 0.5495934690622108,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 57",
+      "time": 14.134615384615383,
+      "velocity": 0.38888781068256245,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 57",
+      "time": 14.134615384615383,
+      "velocity": 0.5401219592813368,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 53",
+      "time": 14.278846153846153,
+      "velocity": 0.3778536488623959,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 53",
+      "time": 14.278846153846153,
+      "velocity": 0.5247967345311054,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 72",
+      "time": 14.423076923076922,
+      "velocity": 0.4067414595449584,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 72",
+      "time": 14.423076923076922,
+      "velocity": 0.4067414595449584,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 72",
+      "time": 14.423076923076922,
+      "velocity": 0.4519349550499538,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 76",
+      "time": 14.567307692307692,
+      "velocity": 0.39992197250272904,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 76",
+      "time": 14.567307692307692,
+      "velocity": 0.39992197250272904,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 80",
+      "time": 14.71153846153846,
+      "velocity": 0.3957072977247918,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 80",
+      "time": 14.71153846153846,
+      "velocity": 0.3957072977247918,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 84",
+      "time": 14.85576923076923,
+      "velocity": 0.3931024854604997,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 84",
+      "time": 14.85576923076923,
+      "velocity": 0.3931024854604997,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 85",
+      "time": 14.999999999999998,
+      "velocity": 0.3846731359046252,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 85",
+      "time": 14.999999999999998,
+      "velocity": 0.5342682443119795,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 85",
+      "time": 14.999999999999998,
+      "velocity": 0.4274145954495836,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 81",
+      "time": 15.144230769230768,
+      "velocity": 0.3820683236403331,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 81",
+      "time": 15.144230769230768,
+      "velocity": 0.5306504495004627,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 77",
+      "time": 15.288461538461537,
+      "velocity": 0.3778536488623959,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 77",
+      "time": 15.288461538461537,
+      "velocity": 0.5247967345311054,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 73",
+      "time": 15.432692307692307,
+      "velocity": 0.3710341618201666,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 73",
+      "time": 15.432692307692307,
+      "velocity": 0.5153252247502313,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 88",
+      "time": 15.576923076923075,
+      "velocity": 0.38888781068256245,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 88",
+      "time": 15.576923076923075,
+      "velocity": 0.38888781068256245,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 88",
+      "time": 15.576923076923075,
+      "velocity": 0.43209756742506944,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 92",
+      "time": 15.721153846153845,
+      "velocity": 0.3846731359046252,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 92",
+      "time": 15.721153846153845,
+      "velocity": 0.3846731359046252,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 96",
+      "time": 15.865384615384613,
+      "velocity": 0.3820683236403331,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 96",
+      "time": 15.865384615384613,
+      "velocity": 0.3820683236403331,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 97",
+      "time": 16.009615384615383,
+      "velocity": 0.3736389740844587,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 97",
+      "time": 16.009615384615383,
+      "velocity": 0.5189430195617482,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 93",
+      "time": 16.153846153846153,
+      "velocity": 0.3710341618201666,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 93",
+      "time": 16.153846153846153,
+      "velocity": 0.5153252247502313,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 93",
+      "time": 16.153846153846153,
+      "velocity": 0.4122601798001851,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 89",
+      "time": 16.298076923076923,
+      "velocity": 0.36681948704222933,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 89",
+      "time": 16.298076923076923,
+      "velocity": 0.5094715097808741,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 100",
+      "time": 16.44230769230769,
+      "velocity": 0.3778536488623959,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 100",
+      "time": 16.44230769230769,
+      "velocity": 0.3778536488623959,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 104",
+      "time": 16.58653846153846,
+      "velocity": 0.3752488365981037,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 104",
+      "time": 16.58653846153846,
+      "velocity": 0.3752488365981037,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 105",
+      "time": 16.73076923076923,
+      "velocity": 0.36681948704222933,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 105",
+      "time": 16.73076923076923,
+      "velocity": 0.5094715097808741,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 105",
+      "time": 16.73076923076923,
+      "velocity": 0.4075772078246993,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 101",
+      "time": 16.875,
+      "velocity": 0.36421467477793723,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 101",
+      "time": 16.875,
+      "velocity": 0.5058537149693573,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 108",
+      "time": 17.019230769230766,
+      "velocity": 0.3710341618201666,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 108",
+      "time": 17.019230769230766,
+      "velocity": 0.3710341618201666,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 109",
+      "time": 17.163461538461537,
+      "velocity": 0.3626048122642921,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 109",
+      "time": 17.163461538461537,
+      "velocity": 0.5036177948115168,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 110",
+      "time": 17.307692307692307,
+      "velocity": 0.5036177948115168,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 110",
+      "time": 17.307692307692307,
+      "velocity": 0.3626048122642921,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 110",
+      "time": 17.307692307692307,
+      "velocity": 0.40289423584921347,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 111",
+      "time": 17.451923076923077,
+      "velocity": 0.5153252247502313,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 111",
+      "time": 17.451923076923077,
+      "velocity": 0.5153252247502313,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 102",
+      "time": 17.596153846153843,
+      "velocity": 0.5058537149693573,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 102",
+      "time": 17.596153846153843,
+      "velocity": 0.36421467477793723,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 106",
+      "time": 17.740384615384613,
+      "velocity": 0.5094715097808741,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 106",
+      "time": 17.740384615384613,
+      "velocity": 0.36681948704222933,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 107",
+      "time": 17.884615384615383,
+      "velocity": 0.5211789397195886,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 107",
+      "time": 17.884615384615383,
+      "velocity": 0.5211789397195886,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 107",
+      "time": 17.884615384615383,
+      "velocity": 0.41694315177567093,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 103",
+      "time": 18.028846153846153,
+      "velocity": 0.5247967345311054,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 103",
+      "time": 18.028846153846153,
+      "velocity": 0.5247967345311054,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 90",
+      "time": 18.17307692307692,
+      "velocity": 0.5094715097808741,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 90",
+      "time": 18.17307692307692,
+      "velocity": 0.36681948704222933,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 94",
+      "time": 18.31730769230769,
+      "velocity": 0.5153252247502313,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 94",
+      "time": 18.31730769230769,
+      "velocity": 0.3710341618201666,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 98",
+      "time": 18.46153846153846,
+      "velocity": 0.5189430195617482,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 98",
+      "time": 18.46153846153846,
+      "velocity": 0.3736389740844587,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 98",
+      "time": 18.46153846153846,
+      "velocity": 0.41515441564939853,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 99",
+      "time": 18.60576923076923,
+      "velocity": 0.5306504495004627,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 99",
+      "time": 18.60576923076923,
+      "velocity": 0.5306504495004627,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 95",
+      "time": 18.75,
+      "velocity": 0.5342682443119795,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 95",
+      "time": 18.75,
+      "velocity": 0.5342682443119795,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 91",
+      "time": 18.894230769230766,
+      "velocity": 0.5401219592813368,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 91",
+      "time": 18.894230769230766,
+      "velocity": 0.5401219592813368,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 74",
+      "time": 19.038461538461537,
+      "velocity": 0.5153252247502313,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 74",
+      "time": 19.038461538461537,
+      "velocity": 0.3710341618201666,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 74",
+      "time": 19.038461538461537,
+      "velocity": 0.4122601798001851,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 78",
+      "time": 19.182692307692307,
+      "velocity": 0.5247967345311054,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 78",
+      "time": 19.182692307692307,
+      "velocity": 0.3778536488623959,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 82",
+      "time": 19.326923076923077,
+      "velocity": 0.5306504495004627,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 82",
+      "time": 19.326923076923077,
+      "velocity": 0.3820683236403331,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 86",
+      "time": 19.471153846153843,
+      "velocity": 0.5342682443119795,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 86",
+      "time": 19.471153846153843,
+      "velocity": 0.3846731359046252,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 87",
+      "time": 19.615384615384613,
+      "velocity": 0.545975674250694,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 87",
+      "time": 19.615384615384613,
+      "velocity": 0.545975674250694,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 87",
+      "time": 19.615384615384613,
+      "velocity": 0.4367805394005553,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 83",
+      "time": 19.759615384615383,
+      "velocity": 0.5495934690622108,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 83",
+      "time": 19.759615384615383,
+      "velocity": 0.5495934690622108,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 79",
+      "time": 19.903846153846153,
+      "velocity": 0.555447184031568,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 79",
+      "time": 19.903846153846153,
+      "velocity": 0.555447184031568,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 75",
+      "time": 20.04807692307692,
+      "velocity": 0.5649186938124422,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 75",
+      "time": 20.04807692307692,
+      "velocity": 0.5649186938124422,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 54",
+      "time": 20.19230769230769,
+      "velocity": 0.5247967345311054,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 3,
+      "pan": -0.11714285714285717,
+      "source": "E8 root 54",
+      "time": 20.19230769230769,
+      "velocity": 0.3778536488623959,
+      "voice": "ohh"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 54",
+      "time": 20.19230769230769,
+      "velocity": 0.4198373876248844,
+      "voice": "kick"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 58",
+      "time": 20.33653846153846,
+      "velocity": 0.5401219592813368,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 4,
+      "pan": 0.11714285714285709,
+      "source": "E8 root 58",
+      "time": 20.33653846153846,
+      "velocity": 0.38888781068256245,
+      "voice": "lowTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 62",
+      "time": 20.48076923076923,
+      "velocity": 0.5495934690622108,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 5,
+      "pan": 0.3514285714285714,
+      "source": "E8 root 62",
+      "time": 20.48076923076923,
+      "velocity": 0.3957072977247918,
+      "voice": "highTom"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 66",
+      "time": 20.624999999999996,
+      "velocity": 0.5554471840315681,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 6,
+      "pan": 0.5857142857142856,
+      "source": "E8 root 66",
+      "time": 20.624999999999996,
+      "velocity": 0.39992197250272904,
+      "voice": "ride"
+    },
+    {
+      "coordinate": 2,
+      "pan": -0.3514285714285714,
+      "source": "E8 root 70",
+      "time": 20.769230769230766,
+      "velocity": 0.5590649788430849,
+      "voice": "chh"
+    },
+    {
+      "coordinate": 7,
+      "pan": 0.82,
+      "source": "E8 root 70",
+      "time": 20.769230769230766,
+      "velocity": 0.40252678476702114,
+      "voice": "clang"
+    },
+    {
+      "coordinate": 0,
+      "pan": 0,
+      "source": "E8 root 70",
+      "time": 20.769230769230766,
+      "velocity": 0.44725198307446795,
+      "voice": "kick"
+    }
+  ],
+  "mathematicalSource": "standard-240-root-E8-coordinate-realization",
+  "receipt": {
+    "eventCount": 261,
+    "fixtures": {
+      "etq": null,
+      "roots": {
+        "halfInteger": 128,
+        "integer": 112,
+        "rank": 8,
+        "total": 240,
+        "valid": true
+      },
+      "uniqueProjectionValues": 156
+    },
+    "peak": 0.92,
+    "rms": 0.19244659664614536,
+    "wavBytes": 3686804,
+    "wavSha256": "f7d08c2876a4795bff74189b40743c05a71b78926464bc85ef9f65be3b2bb4a5"
+  },
+  "recipe": {
+    "baseMidi": 50,
+    "bitDepth": 16,
+    "bpm": 104,
+    "channels": 2,
+    "cutoff": 8000,
+    "density": 0.51,
+    "description": "All eight coordinates map to an industrial eight-voice drum grid.",
+    "drive": 2.1,
+    "duration": 20.9,
+    "etqExperiment": "graph",
+    "family": "E8 percussion",
+    "grit": 0.12,
+    "label": "R-8 Lattice Drums",
+    "modelMode": "e8",
+    "pitchSpan": 24,
+    "presetId": "r8Drums",
+    "projection": "golden",
+    "renderMode": "drums",
+    "sampleRate": 44100,
+    "scale": "chromatic",
+    "seed": "E8-R8-8",
+    "space": 0.08,
+    "traversal": "lexicographic",
+    "tuning": 444,
+    "waveform": "noise",
+    "width": 0.9
+  },
+  "schema": "https://qsol-imc.example/schemas/e8-workbench-recipe-v1.json",
+  "workbench": {
+    "engineVersion": "1.0.0",
+    "name": "E8 Sonification Workbench Studio"
+  }
+}
