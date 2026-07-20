@@ -9,5 +9,5 @@
   "engines": {
     "node": ">=20"
   },
-  "license": "MIT"
+  "license": "MPL-2.0"
 }

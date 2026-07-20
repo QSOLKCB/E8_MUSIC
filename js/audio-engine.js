@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MPL-2.0
 (function (global, factory) {
   const core = global.E8Core || (typeof require !== "undefined" ? require("./e8-core.js") : null);
   const api = factory(core);

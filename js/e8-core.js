@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MPL-2.0
 (function (global, factory) {
   const api = factory();
   if (typeof module !== "undefined" && module.exports) module.exports = api;

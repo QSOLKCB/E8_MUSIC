@@ -21,3 +21,10 @@ Run `npm test` after changing mathematical, event-mapping, synthesis, or WAV cod
 ## Claim language
 
 Keep exact mathematics, declared ETQ model choices, symbolic MIDI labels, and authored audio-receiver choices distinct. Tuning, waveform, tempo, dynamics and PCM rendering are not intrinsic E8 or qutrit properties.
+
+## Licensing
+
+- The repository is licensed under the Mozilla Public License 2.0.
+- Add \`SPDX-License-Identifier: MPL-2.0\` to every new source file using the file format's comment syntax.
+- Keep the root \`LICENSE\`, README licence statement, and \`package.json\` SPDX identifier consistent.
+- Do not modify the standard MPL 2.0 licence text.
