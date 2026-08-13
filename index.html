@@ -88,7 +88,7 @@
         </label>
       </section>
 
-      <section class="rack-section">
+      <section class="rack-section" id="musicalReceiverSection">
         <div class="section-label"><span>03</span> Musical receiver</div>
         <div class="control-grid two">
           <label>Duration <output id="durationOut">2.4 s</output>
@@ -129,7 +129,7 @@
         </div>
       </section>
 
-      <section class="rack-section">
+      <section class="rack-section" id="synthesisMasterSection">
         <div class="section-label"><span>04</span> Synthesis & master</div>
         <div class="control-grid two">
           <label>Waveform
@@ -164,7 +164,7 @@
         </div>
       </section>
 
-      <div class="rack-actions">
+      <div class="rack-actions" id="rackActions">
         <button class="primary" id="renderButton"><span>RENDER WAV</span><kbd>R</kbd></button>
         <button id="randomSeedButton" title="Create a new seed">NEW SEED</button>
       </div>
@@ -196,7 +196,7 @@
         </div>
       </section>
 
-      <section class="transport-panel">
+      <section class="transport-panel" id="transportPanel">
         <audio id="audioPlayer" controls preload="metadata"></audio>
         <div class="download-actions">
           <button id="downloadWav" disabled>DOWNLOAD .WAV</button>
