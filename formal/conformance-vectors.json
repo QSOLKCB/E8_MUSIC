@@ -101,14 +101,14 @@
     ]
   },
   "boundary_admissibility": {
-    "exponent_k": 2,
+    "exponent_k": 1,
     "source_frequency_float64": [
-      "0x4023fffffffff861",
-      "0x4033fffffffff861"
+      "0x4024000000000000",
+      "0x40c1940000000000"
     ],
     "translated_frequency_float64": [
-      "0x4043fffffffff861",
-      "0x4053fffffffff861"
+      "0x4034000000000000",
+      "0x40d1940000000000"
     ],
     "inclusive_low_hz": 20,
     "inclusive_high_hz": 18000

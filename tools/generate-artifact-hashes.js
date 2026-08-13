@@ -7,6 +7,7 @@ const path = require("node:path");
 
 const ROOT = path.join(__dirname, "..");
 const FIXED_PATHS = [
+  ".gitattributes",
   ".github/workflows/tests.yml",
   ".zenodo.json",
   "README.md",

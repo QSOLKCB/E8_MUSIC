@@ -3,7 +3,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const { buildVectors } = require("../tools/generate-conformance-vectors.js");
+const { buildVectors, float64Hex } = require("../tools/generate-conformance-vectors.js");
 
 test("canonical engine matches locked executable-conformance vectors", async () => {
   const vectorPath = path.join(__dirname, "..", "formal", "conformance-vectors.json");
@@ -20,4 +20,18 @@ test("conformance fixture labels its proof boundary", () => {
   assert.equal(vectors.large_time_origin.pcm_identity_equal, true);
   assert.equal(vectors.large_time_origin.source_identity_equal, false);
   assert.equal(vectors.signed_zero.negative_zero_preserved_after_parse, false);
+});
+
+test("octave conformance reaches both exact inclusive window boundaries", () => {
+  const vectorPath = path.join(__dirname, "..", "formal", "conformance-vectors.json");
+  const vectors = JSON.parse(fs.readFileSync(vectorPath, "utf8"));
+  assert.equal(vectors.boundary_admissibility.exponent_k, 1);
+  assert.deepEqual(vectors.boundary_admissibility.source_frequency_float64, [
+    float64Hex(10),
+    float64Hex(9000)
+  ]);
+  assert.deepEqual(vectors.boundary_admissibility.translated_frequency_float64, [
+    float64Hex(20),
+    float64Hex(18000)
+  ]);
 });

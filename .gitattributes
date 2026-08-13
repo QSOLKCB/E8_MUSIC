@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: MPL-2.0
+# Receipt-bearing text files must have checkout-independent byte identities.
+* text=auto eol=lf

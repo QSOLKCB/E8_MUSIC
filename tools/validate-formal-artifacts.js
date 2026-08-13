@@ -36,10 +36,15 @@ function escapeRegExp(value) {
 
 function leanSources(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isDirectory() && entry.name === ".lake") return [];
     const entryPath = path.join(directory, entry.name);
     if (entry.isDirectory()) return leanSources(entryPath);
     return entry.name.endsWith(".lean") ? [entryPath] : [];
   });
+}
+
+function proofPolicySources() {
+  return leanSources(path.join(ROOT, "formal", "lean"));
 }
 
 function validate() {
@@ -87,7 +92,7 @@ function validate() {
 
   const forbiddenProofHoles = ["sor" + "ry", "ad" + "mit", "ax" + "iom"];
   const declaredTheorems = new Set();
-  for (const sourcePath of leanSources(path.join(ROOT, "formal", "lean", "E8Music"))) {
+  for (const sourcePath of proofPolicySources()) {
     const source = fs.readFileSync(sourcePath, "utf8");
     const theoremPattern = /(?:^|\n)(?:@\[[^\n]*\]\s*)?theorem\s+([A-Za-z0-9_']+)/g;
     for (const match of source.matchAll(theoremPattern)) declaredTheorems.add(match[1]);
@@ -132,4 +137,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = Object.freeze({ validate });
+module.exports = Object.freeze({ proofPolicySources, validate });

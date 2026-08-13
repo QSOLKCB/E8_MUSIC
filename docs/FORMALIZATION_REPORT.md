@@ -53,8 +53,12 @@ proof-motivated change to either v1 contract.
 | CI operating system | GitHub-hosted Ubuntu |
 
 `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` eliminate floating
-formal dependencies. The GitHub workflow invokes `lean-action` by full commit
-SHA. Its mathlib cache is an optimization; `lake build` remains the proof check.
+formal dependencies. The GitHub workflow downloads the Linux archive for
+`elan` v4.2.3, verifies its pinned SHA-256 digest
+`df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2`,
+and installs it without selecting a default toolchain; `lean-toolchain` then
+selects Lean 4.19.0. The mathlib cache is an optimization; `lake build` remains
+the proof check.
 
 ## Formal architecture
 
@@ -210,7 +214,8 @@ section, JavaScript function, and regression test mapping.
 ### Checked by executable test
 
 - JavaScript orbital-frequency binary64 bits;
-- octave selection, boundary behavior, translated values, and ratios;
+- octave selection, exact inclusive 20 Hz and 18,000 Hz boundary behavior,
+  translated values, and ratios;
 - frozen receiver coefficient bits and representative results;
 - blank CSV/JSON numeric-field rejection;
 - ECMAScript signed-zero canonicalization;

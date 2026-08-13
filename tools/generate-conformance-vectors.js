@@ -55,8 +55,7 @@ async function buildVectors() {
   const translated = physical.map((frequency) => frequency * factor);
   const uff = await Canonical.render("uff-orbital-frequency-v1", UFF_SOURCE);
 
-  const boundaryMinimum = profile.audibleLowHz / 2 ** (1 + 5e-13);
-  const boundaryFrequencies = [boundaryMinimum, boundaryMinimum * 2];
+  const boundaryFrequencies = [profile.audibleLowHz / 2, profile.audibleHighHz / 2];
   const boundaryShift = Canonical.chooseOctaveShift(boundaryFrequencies, profile);
   const boundaryTranslated = boundaryFrequencies.map((frequency) => frequency * 2 ** boundaryShift);
 
