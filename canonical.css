@@ -1,0 +1,89 @@
+/* SPDX-License-Identifier: MPL-2.0 */
+.canonical-mode-switch {
+  border-top: 1px solid rgba(230, 169, 77, .32);
+}
+
+.canonical-rack textarea {
+  width: 100%;
+  min-height: 13rem;
+  resize: vertical;
+  box-sizing: border-box;
+  border: 1px solid rgba(129, 151, 143, .35);
+  border-radius: 4px;
+  background: rgba(4, 10, 10, .92);
+  color: #d9e2dd;
+  padding: .8rem;
+  font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.canonical-file-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  border: 1px solid rgba(230, 169, 77, .42);
+  border-radius: 4px;
+  padding: 0 .8rem;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.canonical-file-button input {
+  display: none;
+}
+
+.canonical-example-actions,
+.canonical-downloads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .55rem;
+  margin-top: .65rem;
+}
+
+.canonical-downloads {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.canonical-contract {
+  display: grid;
+  gap: .35rem;
+  margin: .9rem 0;
+  padding: .75rem;
+  border-left: 3px solid #e6a94d;
+  background: rgba(230, 169, 77, .07);
+}
+
+.canonical-contract strong {
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+
+.canonical-contract span,
+.canonical-doc-note,
+.canonical-status {
+  color: #aebdb6;
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.canonical-render {
+  width: 100%;
+  margin-top: .35rem;
+}
+
+.canonical-status {
+  min-height: 2.2em;
+  word-break: break-word;
+}
+
+.canonical-doc-note code {
+  color: #e6a94d;
+}
+
+@media (max-width: 720px) {
+  .canonical-downloads,
+  .canonical-example-actions {
+    grid-template-columns: 1fr;
+  }
+}
