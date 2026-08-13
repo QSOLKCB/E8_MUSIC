@@ -6,6 +6,7 @@
   if (!Canonical) throw new Error("E8Canonical must load before canonical-ui.js.");
 
   const $ = (id) => document.getElementById(id);
+  const interpretiveBoundaryText = "The E8 root construction, D4 triality orbit counts, ETQ-101 selector, selected graph fixtures and symbolic codebook are mathematical/model fixtures. Every audible frequency, scale, tempo, waveform, dynamics rule and WAV encoding choice is an authored receiver. H303 contains 303 site×qutrit components; it does not contain 303 E8 roots.";
   let canonicalResult = null;
   let canonicalAudioUrl = null;
 
@@ -72,6 +73,11 @@
     context.stroke();
   }
 
+  function clearWaveform() {
+    const canvas = $("waveformCanvas");
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+  }
+
   function formatScientific(value) {
     if (!Number.isFinite(value)) return "—";
     if (Math.abs(value) >= 0.01 && Math.abs(value) < 10000) return value.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
@@ -112,6 +118,10 @@
     });
   }
 
+  function clearEventTable() {
+    $("eventTable").innerHTML = '<tr><td colspan="6" class="empty-row">Render a WAV to populate the event ledger.</td></tr>';
+  }
+
   function updateReceipt(result) {
     $("hashReceipt").textContent = result.sha256;
     $("formatReceipt").textContent = `${result.profile.sampleRate.toLocaleString()} Hz · ${result.profile.bitDepth}-bit PCM · mono · ${(result.wav.bytes / 1024 / 1024).toFixed(2)} MiB`;
@@ -130,6 +140,16 @@
       controlArticle.querySelector("small").textContent = "source value → waveform amplitude";
       $("fixtureReceipt").textContent = "time in seconds · amplitude already dimensionless [-1,1] · linear 48 kHz resampling";
     }
+  }
+
+  function clearReceiptForInterpretiveMode() {
+    $("hashReceipt").textContent = "—";
+    $("formatReceipt").textContent = "—";
+    $("eventMetric").textContent = "—";
+    $("levelMetric").textContent = "—";
+    $("projectionMetric").closest("article").querySelector("small").textContent = "unique projection values";
+    document.querySelector(".boundary-panel p").textContent = interpretiveBoundaryText;
+    clearEventTable();
   }
 
   function updateClaimBoundary(profileId) {
@@ -151,14 +171,28 @@
     downloadActions.hidden = canonical;
     canonicalSection.hidden = !canonical;
     if (canonical) {
-      $("emptyDisplay").hidden = false;
-      $("emptyDisplay").querySelector("p").textContent = "LOAD SOURCE DATA · FREEZE THE PROFILE · RENDER CANONICALLY";
       updateClaimBoundary($("canonicalProfile").value);
-      $("renderState").textContent = canonicalResult ? "CANONICAL / HASHED" : "CANONICAL / NOT RENDERED";
+      if (canonicalResult) {
+        $("emptyDisplay").hidden = true;
+        drawWaveform(canonicalResult.buffer);
+        updateReceipt(canonicalResult);
+        updateEventTable(canonicalResult);
+        $("renderState").textContent = "CANONICAL / HASHED / READY";
+      } else {
+        $("emptyDisplay").hidden = false;
+        $("emptyDisplay").querySelector("p").textContent = "LOAD SOURCE DATA · FREEZE THE PROFILE · RENDER CANONICALLY";
+        $("renderState").textContent = "CANONICAL / NOT RENDERED";
+      }
     } else {
+      $("emptyDisplay").hidden = false;
       $("emptyDisplay").querySelector("p").textContent = "SELECT A PRESET · ADJUST THE RECEIVER · RENDER LOCALLY";
+      $("audioPlayer").removeAttribute("src");
+      $("audioPlayer").load();
+      clearWaveform();
+      clearReceiptForInterpretiveMode();
       $("modelMode").dispatchEvent(new Event("input", { bubbles: true }));
-      $("renderState").textContent = "INTERPRETIVE MODE";
+      $("projection").dispatchEvent(new Event("input", { bubbles: true }));
+      $("renderState").textContent = "INTERPRETIVE / RENDER REQUIRED";
     }
   }
 
