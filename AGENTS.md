@@ -10,6 +10,8 @@
 - WAV rendering is an intentional core feature of this repository.
 - Preserve recipe export, seeded interpretive rendering, WAV SHA-256 receipts, and the visible claim boundary.
 - Keep **Interpretive / mathematical music** and **Canonical / source-forced WAV** as visibly separate contracts. Never silently promote an interpretive mapping into a canonical one.
+- Keyboard shortcuts must route through the active contract; hidden interpretive controls must never render while canonical mode is active.
+- Any change to canonical source/profile input invalidates the previous canonical result, receipts, audio and downloads until a fresh render succeeds.
 
 ## Mathematical invariants
 
@@ -24,9 +26,12 @@
 
 - Canonical profile identifiers are versioned contracts. A DSP-affecting change requires a new profile/version rather than silently changing an existing profile.
 - `uff-orbital-frequency-v1` computes physical orbital cycles per second as `f = V/(2*pi*R)` after converting km/s to m/s and kpc to metres.
-- The UFF orbital profile applies one common factor `2^k` to the complete physical-frequency field. Choose the smallest integer `k` that places the complete interval inside the declared audible window. If one global shift cannot fit, fail closed; do not clip, wrap, compress, quantize, or otherwise distort frequency ratios.
+- The UFF orbital profile applies one common factor `2^k` to the complete physical-frequency field. Choose the smallest integer `k` that places the complete interval inside the declared audible window, then verify the translated minimum and maximum exactly. If one global shift cannot fit, fail closed; do not clip, wrap, compress, quantize, or otherwise distort frequency ratios.
+- The UFF v1 receiver linearly interpolates **post-translation frequency** between adjacent radius-sorted observations over equal source-index intervals. That interpolation rule is identity-bearing.
+- The UFF v1 sine receiver uses the profile-defined deterministic polynomial implementation and per-frame wrapped phase accumulator. Do not replace it with host `Math.sin` or another implementation without a new profile/version.
 - Radius-ascending traversal and its fixed seconds-per-interval are observation conventions, never physical-time claims.
-- `direct-unit-signal-v1` accepts time already expressed in seconds and amplitude already dimensionless in `[-1,1]`. Do not add automatic normalization, gain fitting, pitch mapping, oscillators, envelopes, fades, effects, seeds, panning, scales, tuning systems, saturation, or mastering.
+- `direct-unit-signal-v1` accepts time already expressed in seconds and amplitude already dimensionless in `[-1,1]`. Blank numeric values fail closed, signed zero is canonicalized to `+0`, and resampling runs on coordinates shifted to a zero-relative time origin before frame generation.
+- Do not add automatic normalization, gain fitting, pitch mapping, oscillators, envelopes, fades, effects, seeds, panning, scales, tuning systems, saturation, or mastering to direct canonical audification.
 - Canonical mode fixes its WAV observation/serialization profile. Do not expose interpretive tempo, A4, MIDI, scale, waveform, seed, effects, panning, normalization, or mastering controls into the canonical signal path.
 - Preserve separate SHA-256 identities for the canonical source, canonical signal, PCM bytes, and WAV container. Hashes are integrity/replay receipts, not signatures or physical validation.
 - A canonical sonification is still post-processing. It must never alter or upgrade the authority of the underlying UFF/scientific numerical result.
