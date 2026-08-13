@@ -15,38 +15,45 @@
 
   if (!enableButton || !status || !mount) return;
 
-  const protectedIds = [
-    'rootStatus',
-    'activeModel',
-    'renderClock',
-    'progressPercent',
-    'sourceMetric',
-    'sourceMetricLabel',
-    'projectionMetric',
-    'eventMetric',
-    'levelMetric',
-    'hashReceipt',
-    'formatReceipt',
-    'fixtureReceipt',
-    'eventTable',
-    'seed'
+  // Translation is allowlisted, not whole-page. These roots contain ordinary
+  // musical/synthesis/action prose only. E8/ETQ model controls, mathematical
+  // identifiers, claim text, ledgers, measurements and provenance receipts are
+  // deliberately outside this scope and therefore never submitted for translation.
+  const SAFE_TRANSLATION_ROOT_IDS = [
+    'musicalReceiverSection',
+    'synthesisMasterSection',
+    'rackActions',
+    'transportPanel'
   ];
 
+  // Defense in depth for operator-entered data inside an otherwise safe UI root.
+  const protectedIds = ['seed'];
+
   function configureTranslate() {
-    if (!window.translate || typeof window.translate.execute !== 'function') {
+    if (
+      !window.translate ||
+      typeof window.translate.execute !== 'function' ||
+      typeof window.translate.setDocuments !== 'function'
+    ) {
       throw new Error('translate.js loaded without the expected API');
+    }
+
+    const safeDocuments = SAFE_TRANSLATION_ROOT_IDS.map((id) => document.getElementById(id));
+    if (safeDocuments.some((element) => !element)) {
+      throw new Error('Safe translation scope is incomplete; refusing whole-page fallback');
     }
 
     window.translate.language.setLocal('english');
     window.translate.service.use('client.edge');
     window.translate.selectLanguageTag.show = true;
     window.translate.selectLanguageTag.documentId = 'translateMount';
+    window.translate.setDocuments(safeDocuments);
 
     protectedIds.forEach((id) => window.translate.ignore.id.push(id));
     window.translate.ignore.class.push('notranslate');
 
-    // Dynamic interface prose can be translated, while deterministic receipts,
-    // root/state labels and operator-entered values remain outside translation.
+    // The listener is constrained by setDocuments() to the same safe roots, so
+    // dynamic mathematical/provenance content elsewhere in the DOM is never scanned.
     window.translate.listener.start();
     window.translate.execute();
 
@@ -97,7 +104,7 @@
   enableButton.addEventListener('click', () => {
     const consent = window.confirm(
       'Enable online translation powered by translate.js by Guan Leiming (管雷鸣)? ' +
-      'Visible interface text will be sent to the translate.js translation service. ' +
+      'Only allowlisted non-mathematical interface text will be sent to the translate.js translation service. ' +
       'Audio rendering, recipes, operator-entered seed values, mathematical identifiers and provenance receipts remain local. Continue?'
     );
 
