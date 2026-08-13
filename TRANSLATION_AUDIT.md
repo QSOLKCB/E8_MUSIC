@@ -18,8 +18,10 @@ The upstream claim is substantially accurate:
 
 - It can scan page DOM text and create a language selector without restructuring the page.
 - It does not require the integrating site to obtain an API key for the upstream translation service.
-- The checked-in supported-language table contains well over 100 language identifiers.
+- The project ships a supported-language catalogue with well over 100 language identifiers.
 - Dynamic DOM monitoring is available through `translate.listener.start()`.
+
+Language coverage is service-channel dependent. Upstream documentation has historically listed `client.edge` at 73 languages while other/default/private translation channels and models can exceed 100 languages. Therefore the correct claim is that **translate.js can provide 100+ language switching overall**, not that every individual service backend necessarily exposes the same 100+ languages.
 
 The important qualification is that automatic machine translation is not offline by default. When enabled, visible page text selected for translation is sent to a translation service. Upstream also documents custom/private service endpoints and offline/config-driven translation modes, but those are different deployment models.
 
