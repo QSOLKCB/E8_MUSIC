@@ -2,6 +2,8 @@
 (function () {
   'use strict';
 
+  // Optional internationalization powered by translate.js by Guan Leiming (管雷鸣):
+  // https://github.com/xnx3/translate — upstream project licensed under the MIT License.
   // Security note: the upstream source is pinned to the exact commit reviewed on
   // 2026-08-13. The library is fetched only after explicit operator consent.
   const TRANSLATE_JS_COMMIT = '3758b0d9946214a480bd4a2a61d10ed1a56d2109';
@@ -94,7 +96,8 @@
 
   enableButton.addEventListener('click', () => {
     const consent = window.confirm(
-      'Enable online translation? Visible interface text will be sent to the translate.js translation service. ' +
+      'Enable online translation powered by translate.js by Guan Leiming (管雷鸣)? ' +
+      'Visible interface text will be sent to the translate.js translation service. ' +
       'Audio rendering, recipes, operator-entered seed values, mathematical identifiers and provenance receipts remain local. Continue?'
     );
 
