@@ -4,7 +4,8 @@
   grid-template-columns: auto minmax(0, auto);
   grid-template-areas:
     "button status"
-    "mount mount";
+    "mount mount"
+    "credit credit";
   align-items: center;
   gap: 5px 8px;
   min-width: 210px;
@@ -47,9 +48,24 @@
   font: 600 10px/1.2 var(--mono);
 }
 
+.translation-credit {
+  grid-area: credit;
+  color: var(--dim);
+  font: 600 8px/1.2 var(--mono);
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+
+.translation-credit:hover,
+.translation-credit:focus-visible { color: var(--amber); }
+
 @media (max-width: 1050px) {
   .translation-status { display: none; }
-  .translation-control { min-width: 150px; grid-template-columns: 1fr; grid-template-areas: "button" "mount"; }
+  .translation-control {
+    min-width: 150px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "button" "mount" "credit";
+  }
 }
 
 @media (max-width: 780px) {
@@ -58,7 +74,9 @@
     flex: 1 0 100%;
     min-width: 0;
     grid-template-columns: auto minmax(0, 1fr);
-    grid-template-areas: "button mount";
+    grid-template-areas:
+      "button mount"
+      "credit credit";
   }
   .translation-control > button { min-width: 120px; }
 }
