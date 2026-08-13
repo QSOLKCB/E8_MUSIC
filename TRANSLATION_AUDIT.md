@@ -46,9 +46,12 @@ The integration is intentionally narrower than the upstream quick-start:
 2. translate.js is not present in the startup HTML as a remote script.
 3. The remote library is loaded only after the operator clicks **LANGUAGE** and accepts a disclosure.
 4. The upstream library revision is commit-pinned.
-5. Deterministic seed values, model/root status, event-ledger content, numeric render measurements, WAV hashes, format receipts, and mathematical-fixture receipts are excluded from translation.
-6. Translation failure cannot block rendering or alter the deterministic audio engine.
-7. No analytics or telemetry were added by E8_MUSIC.
+5. `translate.setDocuments()` restricts scanning and mutation monitoring to four explicit non-mathematical UI roots: Musical Receiver, Synthesis & Master, rack actions, and transport/download controls.
+6. E8/ETQ model controls, mathematical-source options, active-contract text, render/model displays, measurements, provenance receipts, event-ledger content, and claim-boundary prose sit outside that allowlisted document set and therefore are never submitted for translation.
+7. The deterministic seed input is additionally ignored inside the Musical Receiver root as defense in depth.
+8. If any allowlisted root is missing, initialization fails closed rather than falling back to whole-page translation.
+9. Translation failure cannot block rendering or alter the deterministic audio engine.
+10. No analytics or telemetry were added by E8_MUSIC.
 
 ## Residual risk
 
