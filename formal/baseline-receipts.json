@@ -1,0 +1,11 @@
+{
+  "schema": "qsol.e8-music.formal-baseline-receipts/v1",
+  "license": "MPL-2.0",
+  "baseline_commit": "d32b5620d47275ae914e31a58f023a134f02d359",
+  "files": {
+    "AGENTS.md": "c21a124d73b6f9f87d13a260d4b7e0a6f94eb69778706c020a4696b2da0e8ff1",
+    "CANONICAL_SONIFICATION.md": "b68a0635e26a150857573e3492d7a239be19f31837728954f18783789d332b1a",
+    "js/canonical-engine.js": "ad647f17352f94ed8e8076cff7c57cc8cc28f08ee014fbfd8e26f6b5923b0c30",
+    "tests/canonical.test.js": "5964e35fe0123bcf4207bfdf7669dfe72cb257cd4acfdfea92727794d48e07ac"
+  }
+}

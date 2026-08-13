@@ -1,0 +1,985 @@
+{
+  "schema": "qsol.e8-music.claim-manifest/v1",
+  "license": "MPL-2.0",
+  "formalization_version": "1.1.0",
+  "baseline_commit": "d32b5620d47275ae914e31a58f023a134f02d359",
+  "governing_boundary": "FORMALIZED TRANSFORM CORRECTNESS != IMPLEMENTATION CONFORMANCE != SCIENTIFIC VALIDATION != PHYSICAL TRUTH",
+  "profiles": [
+    "uff-orbital-frequency-v1",
+    "direct-unit-signal-v1"
+  ],
+  "claims": [
+    {
+      "claim_id": "CS-UNIT-001",
+      "theorem_name": "kpc_meters_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/Units.lean",
+      "plain_english": "The declared exact metres-per-kiloparsec reference constant is positive.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2 / Declared physical-unit conversions",
+      "javascript_function": "KPC_METERS",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UNIT-002",
+      "theorem_name": "metres_per_kilometre_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/Units.lean",
+      "plain_english": "The declared exact metres-per-kilometre scaling constant is positive.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2 / Declared physical-unit conversions",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UNIT-003",
+      "theorem_name": "tau_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/Units.lean",
+      "plain_english": "The exact real reference value 2π is positive.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2 / Orbital-frequency denominator",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UNIT-004",
+      "theorem_name": "velocity_metres_per_second_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/Units.lean",
+      "plain_english": "Converting a positive km/s value to metres per second preserves positivity.",
+      "assumptions": ["velocity_kms > 0"],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2A / Positivity under unit conversion",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UNIT-005",
+      "theorem_name": "radius_metres_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/Units.lean",
+      "plain_english": "Converting a positive kpc value to metres preserves positivity.",
+      "assumptions": ["radius_kpc > 0"],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2A / Positivity under unit conversion",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-OCT-001",
+      "theorem_name": "octave_factor_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "For every integer k, the exact real common octave factor 2^k is positive.",
+      "assumptions": ["k is an integer"],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2B / Common octave translation",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: one integer octave translation preserves every frequency ratio",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-OCT-002",
+      "theorem_name": "octave_factor_ne_zero",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "For every integer k, the exact real common octave factor 2^k is nonzero.",
+      "assumptions": ["k is an integer"],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["uff-orbital-frequency-v1"],
+      "specification_section": "Part 2C / Frequency-ratio preservation",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: one integer octave translation preserves every frequency ratio",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-012",
+      "theorem_name": "lerp_preserves_amplitude",
+      "lean_source": "formal/lean/E8Music/Canonical/Basic.lean",
+      "plain_english": "The shared interpolation primitive preserves the valid direct-profile amplitude interval.",
+      "assumptions": ["both endpoints are in [-1,1]", "t is in [0,1]"],
+      "proof_status": "proved-in-lean",
+      "profile_versions": ["direct-unit-signal-v1"],
+      "specification_section": "Part 4B / Amplitude bounds",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/canonical.test.js :: direct unit signal is resampled without normalization",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-001",
+      "theorem_name": "orbital_frequency_formula",
+      "lean_source": "formal/lean/E8Music/Canonical/OrbitalFrequency.lean",
+      "plain_english": "The reference orbital transform is V×1000 divided by 2πR×kpc_meters.",
+      "assumptions": [
+        "Declared exact unit constants and real-number arithmetic."
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "CANONICAL_SONIFICATION.md / Profile: uff-orbital-frequency-v1",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-002",
+      "theorem_name": "orbital_frequency_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/OrbitalFrequency.lean",
+      "plain_english": "Positive radius and positive velocity produce a positive reference orbital frequency.",
+      "assumptions": [
+        "radius_kpc > 0",
+        "velocity_kms > 0"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 2A / Positivity",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/canonical.test.js :: orbital frequency uses V/(2*pi*R) with declared units",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-003",
+      "theorem_name": "translate_pos",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "A common integer-octave translation preserves positive frequency.",
+      "assumptions": [
+        "frequency > 0",
+        "k is an integer"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 2B / Common octave translation",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: one integer octave translation preserves every frequency ratio",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-004",
+      "theorem_name": "frequency_ratio_preserved",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "Multiplying two frequencies by the same 2^k preserves their ratio.",
+      "assumptions": [
+        "denominator frequency is nonzero",
+        "k is an integer"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 2C / Frequency-ratio preservation",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: one integer octave translation preserves every frequency ratio",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-005",
+      "theorem_name": "chooseShift_sound",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "If reference candidate selection succeeds, the selected shift satisfies every inclusive window bound.",
+      "assumptions": [
+        "candidate list is finite"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Parts 2D–2E / Admissibility and minimal shift",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: octave translation verifies the accepted interval after bound selection",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-006",
+      "theorem_name": "chooseShift_minimal",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "On an ascending candidate window, every candidate smaller than the selected shift in that window is inadmissible; admissibility of the selected shift is CS-UFF-005.",
+      "assumptions": [
+        "candidate list is strictly increasing",
+        "selection succeeds"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 2E / Minimal shift",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: one integer octave translation preserves every frequency ratio",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-007",
+      "theorem_name": "chooseShift_none_of_no_admissible",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "If no integer shift is admissible, reference selection returns no result.",
+      "assumptions": [
+        "no integer satisfies AdmissibleShift"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 2F / Fail-closed behavior",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: orbital profile fails closed when one octave shift cannot fit the span",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-UFF-008",
+      "theorem_name": "no_common_shift_of_span",
+      "lean_source": "formal/lean/E8Music/Canonical/OctaveTranslation.lean",
+      "plain_english": "When the source endpoint span exceeds the target-window span, no positive common octave factor can fit both endpoints.",
+      "assumptions": [
+        "minimum > 0",
+        "maximum > 0",
+        "high×minimum < low×maximum"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 2F / Fail-closed behavior",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/canonical.test.js :: orbital profile fails closed when one octave shift cannot fit the span",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-001",
+      "theorem_name": "lerp_zero",
+      "lean_source": "formal/lean/E8Music/Canonical/Basic.lean",
+      "plain_english": "Linear interpolation at t=0 equals the first endpoint.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 3 / Interpolation endpoints",
+      "javascript_function": "interpolate; renderDirect",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-002",
+      "theorem_name": "lerp_one",
+      "lean_source": "formal/lean/E8Music/Canonical/Basic.lean",
+      "plain_english": "Linear interpolation at t=1 equals the second endpoint.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 3 / Interpolation endpoints",
+      "javascript_function": "interpolate; renderDirect",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-003",
+      "theorem_name": "lerp_mem_Icc",
+      "lean_source": "formal/lean/E8Music/Canonical/Basic.lean",
+      "plain_english": "A convex interpolation stays inside any inclusive interval containing both endpoints.",
+      "assumptions": [
+        "both endpoints are in [low,high]",
+        "t is in [0,1]"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 3 / Interpolation convexity",
+      "javascript_function": "interpolate; renderDirect",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-004",
+      "theorem_name": "translated_lerp_zero",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "Translated-frequency interpolation begins at the translated first observation.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Translate then interpolate",
+      "javascript_function": "interpolate",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-005",
+      "theorem_name": "translated_lerp_one",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "Translated-frequency interpolation ends at the translated second observation.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Translate then interpolate",
+      "javascript_function": "interpolate",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-006",
+      "theorem_name": "translated_lerp_bounds",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "Interpolation between admissible translated frequencies remains in the inclusive window.",
+      "assumptions": [
+        "translated endpoints are admissible",
+        "t is in [0,1]"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Interpolation bounds",
+      "javascript_function": "interpolate",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-007",
+      "theorem_name": "translated_lerp_eq_translate_lerp",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "Common linear scaling commutes algebraically with affine interpolation of the already-computed frequency field.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Translate then interpolate",
+      "javascript_function": "interpolate",
+      "implementation_test": null,
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-008",
+      "theorem_name": "exact_frames_per_interval",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "48,000 samples/s times exact 1/20 s equals exactly 2,400 frames.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Exact endpoint arithmetic",
+      "javascript_function": "renderUffOrbital",
+      "implementation_test": "tests/canonical.test.js :: UFF canonical render is deterministic, profile-complete, and contains no musical controls",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-009",
+      "theorem_name": "frame_count_spec",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "n intervals produce n×2,400+1 frames, including both global endpoints.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Complete frame count",
+      "javascript_function": "renderUffOrbital",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-010",
+      "theorem_name": "first_interval_endpoint",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "The first interval-frame parameter is exactly zero.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Both endpoints included",
+      "javascript_function": "renderUffOrbital",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-INT-011",
+      "theorem_name": "final_interval_endpoint",
+      "lean_source": "formal/lean/E8Music/Canonical/Interpolation.lean",
+      "plain_english": "The final interval-frame parameter is exactly one.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 3 / Both endpoints included",
+      "javascript_function": "renderUffOrbital",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-DIRECT-001",
+      "theorem_name": "relative_time_translation_invariant",
+      "lean_source": "formal/lean/E8Music/Canonical/DirectAudification.lean",
+      "plain_english": "Adding one absolute offset to a time and its origin leaves their relative interval unchanged.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 4A / Time-origin invariance",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/canonical.test.js :: direct resampling is invariant to a large absolute time origin",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-DIRECT-002",
+      "theorem_name": "relative_series_translation_invariant",
+      "lean_source": "formal/lean/E8Music/Canonical/DirectAudification.lean",
+      "plain_english": "A whole source series has identical zero-relative coordinates after a common absolute time shift.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 4A / Time-origin invariance",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-DIRECT-003",
+      "theorem_name": "segment_resampling_translation_invariant",
+      "lean_source": "formal/lean/E8Music/Canonical/DirectAudification.lean",
+      "plain_english": "Piecewise-linear segment resampling is unchanged when source and sample times share one offset.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 4A / Resampling invariance",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/canonical.test.js :: direct resampling is invariant to a large absolute time origin",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-DIRECT-004",
+      "theorem_name": "direct_audification_is_pure_lerp",
+      "lean_source": "formal/lean/E8Music/Canonical/DirectAudification.lean",
+      "plain_english": "The direct reference mapping is definitionally pure linear interpolation with no authored normalization or musical stage.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 4C / No authored normalization",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/canonical.test.js :: direct unit signal is resampled without normalization",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-DIRECT-005",
+      "theorem_name": "direct_interpolation_preserves_amplitude",
+      "lean_source": "formal/lean/E8Music/Canonical/DirectAudification.lean",
+      "plain_english": "Interpolating valid endpoint amplitudes with t in [0,1] remains in [-1,1].",
+      "assumptions": [
+        "endpoint amplitudes are in [-1,1]",
+        "t is in [0,1]"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 4B / Amplitude bounds",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/canonical.test.js :: direct unit signal rejects data that would require authored normalization",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-DET-001",
+      "theorem_name": "same_profile_input_same_reference_output",
+      "lean_source": "formal/lean/E8Music/Canonical/Determinism.lean",
+      "plain_english": "A reference renderer is functionally deterministic: equal profile and source inputs yield equal outputs.",
+      "assumptions": [
+        "ordinary pure functional semantics"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 7 / Determinism",
+      "javascript_function": "render",
+      "implementation_test": "tests/canonical.test.js :: UFF canonical render is deterministic, profile-complete, and contains no musical controls",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-SINE-001",
+      "theorem_name": "sine_poly17_odd",
+      "lean_source": "formal/lean/E8Music/Canonical/Determinism.lean",
+      "plain_english": "The exact-real degree-17 receiver polynomial is odd.",
+      "assumptions": [
+        "exact rational reference coefficients"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 6 / Deterministic sine receiver",
+      "javascript_function": "deterministicSine",
+      "implementation_test": "tests/canonical.test.js :: canonical sine is profile-defined and avoids implementation-defined Math.sin",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-SINE-002",
+      "theorem_name": "sine_poly17_zero",
+      "lean_source": "formal/lean/E8Music/Canonical/Determinism.lean",
+      "plain_english": "The exact-real degree-17 receiver polynomial evaluates to zero at zero.",
+      "assumptions": [
+        "exact rational reference coefficients"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 6 / Deterministic sine receiver",
+      "javascript_function": "deterministicSine",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-OBS-001",
+      "theorem_name": "sonification_preserves_source",
+      "lean_source": "formal/lean/E8Music/Canonical/Observation.lean",
+      "plain_english": "Attaching an audio artifact preserves the underlying source object exactly.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 7 / Observation authority",
+      "javascript_function": "renderUffOrbital; renderDirect",
+      "implementation_test": null,
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-OBS-002",
+      "theorem_name": "replacing_audio_preserves_source",
+      "lean_source": "formal/lean/E8Music/Canonical/Observation.lean",
+      "plain_english": "Replacing audio cannot change the source/scientific field.",
+      "assumptions": [],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 7 / Zero scientific authority of audio",
+      "javascript_function": "renderUffOrbital; renderDirect",
+      "implementation_test": null,
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-CONF-001",
+      "theorem_name": "negative_zero_normalizes",
+      "lean_source": "formal/lean/E8Music/Canonical/Conformance.lean",
+      "plain_english": "In the abstract encoded-number model, negative zero canonicalizes to positive zero.",
+      "assumptions": [
+        "abstract encoding, not Real or JavaScript semantics"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 5 / Signed-zero boundary",
+      "javascript_function": "normalizeSignedZero",
+      "implementation_test": "tests/canonical.test.js :: signed zero is normalized before source serialization and rendering",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-CONF-002",
+      "theorem_name": "encoded_zero_normalization_idempotent",
+      "lean_source": "formal/lean/E8Music/Canonical/Conformance.lean",
+      "plain_english": "Abstract signed-zero normalization is idempotent.",
+      "assumptions": [
+        "abstract encoding, not Real or JavaScript semantics"
+      ],
+      "proof_status": "proved-in-lean",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 5 / Signed-zero boundary",
+      "javascript_function": "normalizeSignedZero",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "mathematical"
+    },
+    {
+      "claim_id": "CS-IMPL-001",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "The JavaScript orbital-frequency output matches the locked binary64 bit pattern.",
+      "assumptions": [
+        "ECMAScript Number binary64",
+        "declared v1 constants"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 9 / Orbital frequency vector",
+      "javascript_function": "orbitalFrequencyHz",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-002",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "Octave selection, translated values, ratios, inclusive boundary handling, and failure text match locked vectors.",
+      "assumptions": [
+        "Node/ECMAScript numerical behavior"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 9 / Octave and boundary vectors",
+      "javascript_function": "chooseOctaveShift",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-003",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "The sine coefficients and representative receiver evaluations match exact binary64 bit patterns.",
+      "assumptions": [
+        "Node/ECMAScript binary64",
+        "qsol-deterministic-sine-poly17-v1"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 6 and Part 9 / Receiver vectors",
+      "javascript_function": "deterministicSine",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-004",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "The UFF implementation produces the locked frame count, source identity, signal identity, PCM identity, and WAV identity.",
+      "assumptions": [
+        "Node/ECMAScript execution",
+        "SHA-256 implementation"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1"
+      ],
+      "specification_section": "Part 9 / Complete render identities",
+      "javascript_function": "renderUffOrbital",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-005",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "The direct implementation preserves interpolation endpoints and produces the locked four-stage identities.",
+      "assumptions": [
+        "Node/ECMAScript execution",
+        "SHA-256 implementation"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 9 / Direct audification vectors",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-006",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "Large common absolute time origins preserve direct signal and PCM identities while source identity remains distinct.",
+      "assumptions": [
+        "exactly representable tested time offsets",
+        "Node/ECMAScript execution"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 4A and Part 9 / Large time origin",
+      "javascript_function": "renderDirect",
+      "implementation_test": "tests/canonical.test.js :: direct resampling is invariant to a large absolute time origin",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-007",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "Blank CSV and JSON numeric fields are rejected instead of coerced to zero.",
+      "assumptions": [
+        "current parser aliases and input formats"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 5 / Parsing boundary",
+      "javascript_function": "finiteNumber; parseUffCurve; parseDirectSignal",
+      "implementation_test": "tests/canonical.test.js :: blank canonical numeric fields fail closed instead of coercing to zero",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-008",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "JavaScript signed zero is canonicalized before source serialization and signal generation.",
+      "assumptions": [
+        "ECMAScript Object.is and JSON behavior"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 5 / Signed-zero boundary",
+      "javascript_function": "normalizeSignedZero; canonicalJson",
+      "implementation_test": "tests/canonical.test.js :: signed zero is normalized before source serialization and rendering",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-IMPL-009",
+      "theorem_name": null,
+      "lean_source": null,
+      "plain_english": "Canonical source, float64 signal, PCM16 bytes, and RIFF/WAVE container retain separate locked SHA-256 identities.",
+      "assumptions": [
+        "deterministic serialization",
+        "SHA-256 implementation"
+      ],
+      "proof_status": "checked-by-executable-test",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 9 / Identity chain",
+      "javascript_function": "canonicalJson; float64LeBuffer; encodeWavMono16; sha256Hex",
+      "implementation_test": "tests/formal-conformance.test.js :: locked conformance vectors",
+      "classification": "implementation-conformance"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-001",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not prove that UFF is physically correct.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-002",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not prove that E8 is a physical theory of the galaxy.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-003",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that sonified frequency is acoustic radiation emitted by a galaxy.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-004",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that 20–18,000 Hz is privileged in nature.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-005",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that 48 kHz is physically preferred.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-006",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that PCM16 is physically preferred.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-007",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that mono is physically preferred.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-008",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that the polynomial sine receiver is physically preferred.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-009",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that radius traversal represents physical time.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-010",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that sonification validates a scientific theory.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-011",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that SHA-256 integrity implies physical truth.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    },
+    {
+      "claim_id": "CS-NONCLAIM-012",
+      "theorem_name": null,
+      "lean_source": "formal/lean/E8Music/Canonical/Claims.lean",
+      "plain_english": "The formalization does not claim that transform proofs validate upstream observational data.",
+      "assumptions": [],
+      "proof_status": "explicitly-not-claimed",
+      "profile_versions": [
+        "uff-orbital-frequency-v1",
+        "direct-unit-signal-v1"
+      ],
+      "specification_section": "Part 8 / Explicit nonclaims",
+      "javascript_function": null,
+      "implementation_test": null,
+      "classification": "nonclaim"
+    }
+  ]
+}

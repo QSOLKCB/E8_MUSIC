@@ -1,0 +1,48 @@
+{
+  "title": "E8_MUSIC Canonical Sonification: Deterministic Source-Forced WAV Profiles with Lean 4 Formal Assurance",
+  "upload_type": "software",
+  "description": "E8_MUSIC v1.1.0 provides deterministic canonical/source-forced WAV profiles with a pinned Lean 4 reference formalization, theorem-to-code claim inventory, and executable JavaScript binary64/byte/hash conformance vectors. Formalized transform correctness is explicitly distinct from implementation conformance, scientific validation, and physical truth.",
+  "creators": [
+    {
+      "name": "Slade, Trent",
+      "affiliation": "QSOL-IMC"
+    }
+  ],
+  "license": "MPL-2.0",
+  "access_right": "open",
+  "version": "1.1.0",
+  "keywords": [
+    "sonification",
+    "audification",
+    "Lean 4",
+    "formal verification",
+    "formal methods",
+    "reproducibility",
+    "deterministic audio",
+    "scientific sonification",
+    "rotation curves",
+    "orbital frequency",
+    "UFF",
+    "E8_MUSIC",
+    "provenance",
+    "PCM",
+    "WAV"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/QSOLKCB/E8_MUSIC",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/QSOLKCB/E8_MUSIC/commit/d32b5620d47275ae914e31a58f023a134f02d359",
+      "relation": "references",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/QSOLKCB/E8_MUSIC/pull/2",
+      "relation": "references",
+      "scheme": "url"
+    }
+  ]
+}

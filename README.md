@@ -81,6 +81,40 @@ The canonical manifest keeps wall-clock time and filenames out of this identity 
 
 The provenance and claim-boundary architecture follows the same general discipline used by **QSOLKCB/SONIFICATION** and **QSOLKCB/UFF**: freeze the mapping contract, make the output replayable, keep post-processing from altering the underlying numerical result, and state explicitly what the audio does and does not claim.
 
+## Lean 4 formal assurance
+
+Release target `v1.1.0` adds a pinned Lean 4 reference formalization for both
+canonical v1 profiles. It proves mathematical transform properties and keeps
+them strictly separate from executable JavaScript conformance and scientific
+or physical claims:
+
+```text
+FORMALIZED TRANSFORM CORRECTNESS
+!= IMPLEMENTATION CONFORMANCE
+!= SCIENTIFIC VALIDATION
+!= PHYSICAL TRUTH
+```
+
+The proof package covers orbital-frequency positivity, common-octave positivity
+and ratio preservation, inclusive window admissibility, minimal candidate
+selection and fail-closed conditions, translate-then-interpolate semantics,
+exact frame arithmetic, direct-profile time-origin invariance, amplitude bounds,
+functional determinism, polynomial receiver properties, and structural
+preservation of the source result when audio is attached.
+
+ECMAScript binary64 execution, parser behavior, signed zero, PCM16/WAV bytes,
+and SHA-256 identities are locked by deterministic executable vectors; they are
+not misrepresented as real-analysis theorems.
+
+- [`docs/FORMALIZATION_REPORT.md`](docs/FORMALIZATION_REPORT.md) — archival scope,
+  methods, assumptions, limitations, and reproducibility;
+- [`formal/CLAIM_MATRIX.md`](formal/CLAIM_MATRIX.md) — human-readable theorem,
+  code, and test mapping;
+- [`formal/claim-manifest.json`](formal/claim-manifest.json) — machine-readable
+  claim authority;
+- [`formal/lean/README.md`](formal/lean/README.md) — independently buildable
+  pinned Lean project.
+
 ## Interpretive sound architectures
 
 The original music-first workbench remains available unchanged as Interpretive mode.
@@ -180,6 +214,12 @@ TRANSLATION_AUDIT.md           Upstream review, attribution and network boundary
 tests/core.test.js             Exact mathematical/model fixture tests
 tests/audio.test.js            Interpretive determinism and WAV tests
 tests/canonical.test.js        Canonical transform, replay and fail-closed tests
+tests/formal-conformance.test.js Locked binary64, signal, PCM and WAV vectors
+tests/formal-metadata.test.js  Claim inventory, pin and baseline consistency
+formal/lean/                   Lean 4 mathematical/reference formalization
+formal/claim-manifest.json     Machine-readable theorem and claim inventory
+formal/CLAIM_MATRIX.md         Human-readable theorem-to-code matrix
+docs/FORMALIZATION_REPORT.md   Zenodo-grade formal-assurance report
 package.json                   Optional Node test command; not required by the app
 ```
 
@@ -191,7 +231,17 @@ The core application itself has no dependency installation. Node.js is needed on
 npm test
 ```
 
-The suite covers the 240-root construction, norm and family counts, 156-value golden projection, triality order, orbit decomposition, ETQ-101 selector, graph fixtures, degree distribution, MIDI codebook bijection, 303-component extension, interpretive deterministic WAV replay, canonical `V/(2πR)` conversion, integer-octave ratio preservation, fail-closed span rejection, direct audification without normalization, stable canonical JSON, and canonical repeated-render identity.
+The suite covers the 240-root construction, norm and family counts, 156-value golden projection, triality order, orbit decomposition, ETQ-101 selector, graph fixtures, degree distribution, MIDI codebook bijection, 303-component extension, interpretive deterministic WAV replay, canonical `V/(2πR)` conversion, integer-octave ratio preservation, fail-closed span rejection, direct audification without normalization, stable canonical JSON, canonical repeated-render identity, locked binary64 vectors, the four-stage canonical identity chain, and formal-artifact consistency.
+
+Build the independently pinned Lean reference model separately:
+
+```bash
+cd formal/lean
+lake build
+```
+
+The default Lean target imports every theorem module. CI runs both verification
+layers on every pull request without a documentation-only bypass.
 
 ## Licence
 
