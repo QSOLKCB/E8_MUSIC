@@ -2,8 +2,10 @@
 
 ## Product contract
 
-- Keep the application completely offline and directly openable from `index.html`.
-- Do not add CDN assets, cloud calls, analytics, Node runtime requirements, bundlers, frameworks, package dependencies, or a server requirement.
+- Keep the core sonification application fully functional offline and directly openable from `index.html`.
+- Do not add mandatory CDN assets, cloud calls, analytics, Node runtime requirements, bundlers, frameworks, package dependencies, or a server requirement.
+- The optional translate.js language layer is the sole network exception: it must load only after explicit operator consent, use a pinned upstream revision, fail closed when unavailable, and never be required for rendering, recipes, receipts, or any mathematical functionality.
+- Translation must not submit or rewrite deterministic seed values, mathematical identifiers, event-ledger data, WAV hashes, format receipts, or mathematical-fixture receipts.
 - WAV rendering is an intentional core feature of this repository.
 - Preserve recipe export, seeded rendering, WAV SHA-256 receipts, and the visible claim boundary.
 
@@ -16,7 +18,7 @@
 - H303 contains 303 `H101 × C3` states/components. Never describe it as 303 E8 roots.
 - Do not portray `D3 = diag(1, -2, 1)` as an intrinsic low/mid/high pitch order.
 
-Run `npm test` after changing mathematical, event-mapping, synthesis, or WAV code.
+Run `npm test` after changing mathematical, event-mapping, synthesis, WAV, or translation-boundary code.
 
 ## Claim language
 
