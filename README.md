@@ -1,8 +1,8 @@
 # E8 Sonification Workbench Studio
 
-A dependency-free, offline browser studio for turning exact E8 and ETQ-101 structures into WAV reference tracks for music creation.
+A dependency-free, offline-first browser studio for turning exact E8 and ETQ-101 structures into WAV reference tracks for music creation.
 
-The workbench replaces a growing collection of one-off Python sonification scripts with one adjustable instrument. It runs entirely in the browser, needs no cloud service or build system, and exports ordinary PCM WAV files suitable for uploading as reference audio to services such as Suno.
+The core workbench replaces a growing collection of one-off Python sonification scripts with one adjustable instrument. It runs entirely in the browser, needs no cloud service or build system for sonification, and exports ordinary PCM WAV files suitable for uploading as reference audio to services such as Suno.
 
 ## Start the studio
 
@@ -11,8 +11,23 @@ The workbench replaces a growing collection of one-off Python sonification scrip
 3. Choose a preset, adjust the mathematical source and musical receiver, then select **Render WAV**.
 4. Preview the result and download the `.wav` file.
 5. Optionally download the canonicalized recipe JSON containing the parameters, model fixtures, event preview, and WAV SHA-256 receipt.
+6. Optionally select **Language** to enable the separately consented online translation layer.
 
-There is no server, npm install, CDN, WebAssembly package, audio plug-in, Python environment, or internet connection involved.
+The sonification core has no server, npm install, mandatory CDN, WebAssembly package, audio plug-in, Python environment, or internet connection requirement. The optional language layer is the sole network exception and is never required for rendering or verification.
+
+## Optional multilingual interface
+
+Internationalization is powered by **[translate.js](https://github.com/xnx3/translate)**, authored by **Guan Leiming (管雷鸣)** and distributed under the MIT License. QSOL-IMC gratefully acknowledges Guan Leiming for making the project available as open source and for bringing it to our attention.
+
+The integration is intentionally more restrictive than the upstream quick-start:
+
+- translate.js is not loaded when the studio starts;
+- the operator must explicitly select **Language** and accept the network disclosure;
+- the upstream browser library is pinned to reviewed commit `3758b0d9946214a480bd4a2a61d10ed1a56d2109` rather than a floating branch;
+- deterministic seeds, mathematical identifiers, event-ledger data, WAV hashes, format receipts, and mathematical-fixture receipts are excluded from translation;
+- translation failure cannot block or modify the deterministic sonification engine.
+
+The upstream library does not require an API key from the integrating site, but live machine translation is still a network service: interface text selected for translation is sent to the configured translate.js service. Users requiring a strictly air-gapped workflow should leave translation disabled. See [`TRANSLATION_AUDIT.md`](TRANSLATION_AUDIT.md) for the review and containment notes.
 
 ## Included sound architectures
 
@@ -106,11 +121,14 @@ For a broadly compatible Suno reference track, start with **44,100 Hz · 16-bit 
 ## Repository structure
 
 ```text
-index.html             Complete offline user interface
+index.html             Offline-first user interface and opt-in language control
 styles.css             Responsive studio styling
+translation.css        Styling for the optional translation control
 js/e8-core.js          E8 roots, projections, triality, ETQ selector and graph
 js/audio-engine.js     Presets, synthesis, mastering, PCM WAV encoder and hash
 js/app.js              UI state, render monitor, downloads and recipe import
+js/translation.js      Consent gate and pinned translate.js integration
+TRANSLATION_AUDIT.md   Upstream review, attribution, network boundary and residual risk
 tests/core.test.js     Exact mathematical/model fixture tests
 tests/audio.test.js    Determinism, WAV header and preset smoke tests
 package.json           Optional Node test command; not required by the app
@@ -118,7 +136,7 @@ package.json           Optional Node test command; not required by the app
 
 ## Verification
 
-The application itself has no dependency installation. Node.js is needed only to run the development tests:
+The core application itself has no dependency installation. Node.js is needed only to run the development tests:
 
 ```bash
 npm test
@@ -129,3 +147,5 @@ Tests cover the 240-root construction, norm and family counts, 156-value golden 
 ## Licence
 
 Mozilla Public License Version 2.0. Copyright 2026 Trent Slade / QSOL-IMC.
+
+The optional translate.js integration acknowledges **Guan Leiming (管雷鸣)** as the author of [xnx3/translate](https://github.com/xnx3/translate), which is licensed separately under the MIT License.

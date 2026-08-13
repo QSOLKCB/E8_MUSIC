@@ -1,0 +1,82 @@
+/* SPDX-License-Identifier: MPL-2.0 */
+.translation-control {
+  display: grid;
+  grid-template-columns: auto minmax(0, auto);
+  grid-template-areas:
+    "button status"
+    "mount mount"
+    "credit credit";
+  align-items: center;
+  gap: 5px 8px;
+  min-width: 210px;
+}
+
+.translation-control > button {
+  grid-area: button;
+  min-height: 32px;
+  padding: 7px 10px;
+  border-color: var(--amber-soft);
+  color: var(--amber);
+}
+
+.translation-status {
+  grid-area: status;
+  max-width: 180px;
+  color: var(--dim);
+  font: 700 8px/1.25 var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.translation-status[data-state="online"] { color: var(--green); }
+.translation-status[data-state="loading"] { color: var(--amber); }
+.translation-status[data-state="error"] { color: var(--oxide); }
+
+.translation-mount {
+  grid-area: mount;
+  min-height: 0;
+}
+
+.translation-mount:empty { display: none; }
+.translation-mount select {
+  width: 100%;
+  min-height: 32px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  background: #0d1010;
+  color: var(--ink);
+  font: 600 10px/1.2 var(--mono);
+}
+
+.translation-credit {
+  grid-area: credit;
+  color: var(--dim);
+  font: 600 8px/1.2 var(--mono);
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+
+.translation-credit:hover,
+.translation-credit:focus-visible { color: var(--amber); }
+
+@media (max-width: 1050px) {
+  .translation-status { display: none; }
+  .translation-control {
+    min-width: 150px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "button" "mount" "credit";
+  }
+}
+
+@media (max-width: 780px) {
+  .masthead { flex-wrap: wrap; }
+  .translation-control {
+    flex: 1 0 100%;
+    min-width: 0;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "button mount"
+      "credit credit";
+  }
+  .translation-control > button { min-width: 120px; }
+}
