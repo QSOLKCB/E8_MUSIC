@@ -9,6 +9,7 @@
   const interpretiveBoundaryText = "The E8 root construction, D4 triality orbit counts, ETQ-101 selector, selected graph fixtures and symbolic codebook are mathematical/model fixtures. Every audible frequency, scale, tempo, waveform, dynamics rule and WAV encoding choice is an authored receiver. H303 contains 303 site×qutrit components; it does not contain 303 E8 roots.";
   let canonicalResult = null;
   let canonicalAudioUrl = null;
+  let inputRevision = 0;
 
   const uffExample = `radius_kpc,velocity_kms
 0.5,90
@@ -26,6 +27,10 @@
 0.375,-0.75
 0.500,0
 `;
+
+  function isCanonicalMode() {
+    return $("sonificationMode")?.value === "canonical";
+  }
 
   function downloadBlob(blob, filename) {
     const url = URL.createObjectURL(blob);
@@ -142,6 +147,19 @@
     }
   }
 
+  function clearCanonicalReceipt() {
+    $("hashReceipt").textContent = "—";
+    $("formatReceipt").textContent = "—";
+    $("eventMetric").textContent = "—";
+    $("levelMetric").textContent = "—";
+    $("sourceMetric").textContent = "—";
+    $("sourceMetricLabel").textContent = "canonical observations";
+    $("projectionMetric").textContent = "—";
+    $("projectionMetric").closest("article").querySelector("small").textContent = "frozen transform";
+    $("fixtureReceipt").textContent = "—";
+    clearEventTable();
+  }
+
   function clearReceiptForInterpretiveMode() {
     $("hashReceipt").textContent = "—";
     $("formatReceipt").textContent = "—";
@@ -152,11 +170,36 @@
     clearEventTable();
   }
 
+  function disableCanonicalDownloads() {
+    $("canonicalDownloadWav").disabled = true;
+    $("canonicalDownloadManifest").disabled = true;
+    $("canonicalDownloadSource").disabled = true;
+  }
+
+  function invalidateCanonicalResult(status = "INPUT CHANGED · RENDER REQUIRED") {
+    inputRevision += 1;
+    canonicalResult = null;
+    disableCanonicalDownloads();
+    if (canonicalAudioUrl) {
+      URL.revokeObjectURL(canonicalAudioUrl);
+      canonicalAudioUrl = null;
+    }
+    $("canonicalStatus").textContent = status;
+    if (!isCanonicalMode()) return;
+    $("audioPlayer").removeAttribute("src");
+    $("audioPlayer").load();
+    clearWaveform();
+    clearCanonicalReceipt();
+    $("emptyDisplay").hidden = false;
+    $("emptyDisplay").querySelector("p").textContent = "SOURCE OR PROFILE CHANGED · RENDER CANONICALLY";
+    $("renderState").textContent = "CANONICAL / RENDER REQUIRED";
+  }
+
   function updateClaimBoundary(profileId) {
     if (profileId === "uff-orbital-frequency-v1") {
       $("activeModel").textContent = "CANONICAL / UFF ORBITAL FREQUENCY";
       $("claimBoundary").textContent = "V/(2πR) supplies a physical frequency. One globally applied integer-octave translation makes the field audible while preserving every frequency ratio; radius traversal remains a declared observation convention, not physical time.";
-      document.querySelector(".boundary-panel p").textContent = "Canonical mode removes compositional controls from the signal path. For UFF orbital-frequency sonification, the data determine f = V/(2πR); the profile fixes one global power-of-two translation, mono PCM16, 48 kHz, equal radius-interval traversal, and a unit sine receiver. Those observation-profile constants are declared conventions, not intrinsic properties of a galaxy, UFF, E8, or nature.";
+      document.querySelector(".boundary-panel p").textContent = "Canonical mode removes compositional controls from the signal path. For UFF orbital-frequency sonification, the data determine f = V/(2πR); the profile fixes one global power-of-two translation, linear interpolation of translated frequencies, a deterministic sine implementation, mono PCM16, 48 kHz, and equal source-interval traversal. Those observation-profile constants are declared conventions, not intrinsic properties of a galaxy, UFF, E8, or nature.";
     } else {
       $("activeModel").textContent = "CANONICAL / DIRECT AUDIFICATION";
       $("claimBoundary").textContent = "Source time is seconds and source value is already dimensionless [-1,1]. The waveform is deterministic linear resampling only: no pitch map, scale, oscillator, envelope, normalization, seed, effects or mastering.";
@@ -177,6 +220,10 @@
         drawWaveform(canonicalResult.buffer);
         updateReceipt(canonicalResult);
         updateEventTable(canonicalResult);
+        if (canonicalAudioUrl) {
+          $("audioPlayer").src = canonicalAudioUrl;
+          $("audioPlayer").load();
+        }
         $("renderState").textContent = "CANONICAL / HASHED / READY";
       } else {
         $("emptyDisplay").hidden = false;
@@ -197,17 +244,24 @@
   }
 
   async function renderCanonical() {
+    invalidateCanonicalResult("RENDERING · VALIDATING SOURCE AND FROZEN PROFILE");
+    const revision = inputRevision;
+    const profileId = $("canonicalProfile").value;
+    const sourceText = $("canonicalSource").value;
     const button = $("canonicalRenderButton");
     button.disabled = true;
-    $("canonicalStatus").textContent = "RENDERING · VALIDATING SOURCE AND FROZEN PROFILE";
     $("renderState").textContent = "CANONICAL / RENDERING";
     $("progressWrap").hidden = false;
     $("progressText").textContent = "Canonical transform in progress";
     $("progressPercent").textContent = "…";
     try {
-      const result = await Canonical.render($("canonicalProfile").value, $("canonicalSource").value);
+      const result = await Canonical.render(profileId, sourceText);
+      if (revision !== inputRevision || profileId !== $("canonicalProfile").value || sourceText !== $("canonicalSource").value) {
+        $("canonicalStatus").textContent = "INPUT CHANGED DURING RENDER · RESULT DISCARDED";
+        $("renderState").textContent = "CANONICAL / RENDER REQUIRED";
+        return;
+      }
       canonicalResult = result;
-      if (canonicalAudioUrl) URL.revokeObjectURL(canonicalAudioUrl);
       canonicalAudioUrl = URL.createObjectURL(result.wav.blob);
       $("audioPlayer").src = canonicalAudioUrl;
       $("audioPlayer").load();
@@ -296,19 +350,33 @@
     const profileDescription = () => {
       const profile = Canonical.PROFILES[$("canonicalProfile").value];
       $("canonicalProfileDescription").textContent = `${profile.description} ${profile.claim}`;
-      if ($("sonificationMode").value === "canonical") updateClaimBoundary(profile.id);
+      if (isCanonicalMode()) updateClaimBoundary(profile.id);
     };
 
     $("sonificationMode").addEventListener("change", (event) => setMode(event.target.value, interpretiveSections, actions, downloadActions, canonicalSection));
-    $("canonicalProfile").addEventListener("change", profileDescription);
+    $("canonicalProfile").addEventListener("change", () => { invalidateCanonicalResult(); profileDescription(); });
+    $("canonicalSource").addEventListener("input", () => invalidateCanonicalResult());
     $("canonicalRenderButton").addEventListener("click", renderCanonical);
-    $("canonicalUffExample").addEventListener("click", () => { $("canonicalProfile").value = "uff-orbital-frequency-v1"; $("canonicalSource").value = uffExample; profileDescription(); });
-    $("canonicalDirectExample").addEventListener("click", () => { $("canonicalProfile").value = "direct-unit-signal-v1"; $("canonicalSource").value = directExample; profileDescription(); });
+    $("canonicalUffExample").addEventListener("click", () => {
+      $("canonicalProfile").value = "uff-orbital-frequency-v1";
+      $("canonicalSource").value = uffExample;
+      invalidateCanonicalResult("UFF EXAMPLE LOADED · RENDER REQUIRED");
+      profileDescription();
+    });
+    $("canonicalDirectExample").addEventListener("click", () => {
+      $("canonicalProfile").value = "direct-unit-signal-v1";
+      $("canonicalSource").value = directExample;
+      invalidateCanonicalResult("DIRECT EXAMPLE LOADED · RENDER REQUIRED");
+      profileDescription();
+    });
     $("canonicalFile").addEventListener("change", (event) => {
       const [file] = event.target.files;
       if (!file) return;
       const reader = new FileReader();
-      reader.onload = () => { $("canonicalSource").value = String(reader.result || ""); $("canonicalStatus").textContent = `LOADED · ${file.name}`; };
+      reader.onload = () => {
+        $("canonicalSource").value = String(reader.result || "");
+        invalidateCanonicalResult(`LOADED · ${file.name} · RENDER REQUIRED`);
+      };
       reader.onerror = () => { $("canonicalStatus").textContent = "FILE READ FAILED"; };
       reader.readAsText(file);
       event.target.value = "";
@@ -317,9 +385,24 @@
     $("canonicalDownloadManifest").addEventListener("click", () => canonicalResult && downloadBlob(new Blob([Canonical.canonicalJson(canonicalResult.manifest)], { type: "application/json" }), `${fileStem()}.manifest.json`));
     $("canonicalDownloadSource").addEventListener("click", () => canonicalResult && downloadBlob(new Blob([Canonical.canonicalJson(canonicalResult.source)], { type: "application/json" }), `${fileStem()}.source.json`));
 
+    document.addEventListener("keydown", (event) => {
+      const activeTag = document.activeElement?.tagName || "";
+      if (isCanonicalMode() && event.key.toLowerCase() === "r" && !event.ctrlKey && !event.metaKey && !/input|select|textarea/i.test(activeTag)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        renderCanonical();
+      }
+    }, true);
+
     $("canonicalSource").value = uffExample;
     profileDescription();
   }
+
+  window.E8CanonicalUI = Object.freeze({
+    isActive: isCanonicalMode,
+    render: renderCanonical,
+    invalidate: invalidateCanonicalResult
+  });
 
   buildUi();
 })();
