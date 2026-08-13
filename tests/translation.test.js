@@ -24,27 +24,41 @@ test('translate.js is commit-pinned behind explicit operator consent', () => {
   assert.match(integration, /3758b0d9946214a480bd4a2a61d10ed1a56d2109/);
   assert.match(integration, /enableButton\.addEventListener\('click'/);
   assert.match(integration, /window\.confirm\(/);
-  assert.match(integration, /Visible interface text will be sent to the translate\.js translation service/);
+  assert.match(integration, /Only allowlisted non-mathematical interface text will be sent/);
   assert.match(integration, /document\.head\.appendChild\(script\)/);
 });
 
-test('deterministic and provenance fields are excluded from translation', () => {
-  for (const id of [
-    'rootStatus',
-    'activeModel',
-    'sourceMetric',
-    'sourceMetricLabel',
-    'projectionMetric',
-    'eventMetric',
-    'levelMetric',
-    'hashReceipt',
-    'formatReceipt',
-    'fixtureReceipt',
-    'eventTable',
-    'seed'
-  ]) {
+test('translation is restricted to explicit non-mathematical UI roots', () => {
+  const safeRootIds = [
+    'musicalReceiverSection',
+    'synthesisMasterSection',
+    'rackActions',
+    'transportPanel'
+  ];
+
+  for (const id of safeRootIds) {
     assert.match(integration, new RegExp(`['\"]${id}['\"]`));
+    assert.match(index, new RegExp(`id=['\"]${id}['\"]`));
   }
+
+  assert.match(integration, /translate\.setDocuments\(safeDocuments\)/);
+  assert.match(integration, /Safe translation scope is incomplete; refusing whole-page fallback/);
+
+  for (const mathOrProvenanceId of [
+    'rootStatus',
+    'modelMode',
+    'etqExperiment',
+    'activeModel',
+    'claimBoundary',
+    'fixtureReceipt',
+    'eventTable'
+  ]) {
+    assert.doesNotMatch(integration, new RegExp(`['\"]${mathOrProvenanceId}['\"]`));
+  }
+});
+
+test('operator seed remains excluded inside the safe musical-receiver root', () => {
+  assert.match(integration, /const protectedIds = \['seed'\]/);
   assert.match(integration, /translate\.ignore\.class\.push\('notranslate'\)/);
 });
 
@@ -56,8 +70,9 @@ test('Guan Leiming and upstream licensing are visibly attributed', () => {
   assert.match(audit, /Author attribution: 管雷鸣 \(Guan Leiming\)/);
 });
 
-test('repository policy records translation as an optional network exception', () => {
+test('repository policy records translation as an optional allowlisted network exception', () => {
   assert.match(agents, /sole network exception/);
   assert.match(agents, /explicit operator consent/);
   assert.match(agents, /never be required for rendering, recipes, receipts, or any mathematical functionality/);
+  assert.match(agents, /explicitly allowlisted non-mathematical UI roots/);
 });
