@@ -6,14 +6,27 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
-  const ENGINE_VERSION = "1.0.0";
-  const TAU = Math.PI * 2;
+  const ENGINE_VERSION = "1.0.1";
+  const PI = 3.141592653589793;
+  const HALF_PI = 1.5707963267948966;
+  const TAU = 6.283185307179586;
   const KPC_METERS = 3.0856775814913673e19;
   const SAMPLE_RATE = 48000;
   const BIT_DEPTH = 16;
   const CHANNELS = 1;
   const MAX_SOURCE_ROWS = 4096;
   const MAX_DIRECT_SECONDS = 300;
+  const SINE_COEFFICIENTS = Object.freeze([
+    1,
+    -0.16666666666666666,
+    0.008333333333333333,
+    -0.0001984126984126984,
+    0.0000027557319223985893,
+    -2.505210838544172e-8,
+    1.6059043836821613e-10,
+    -7.647163731819816e-13,
+    2.8114572543455206e-15
+  ]);
 
   const PROFILES = Object.freeze({
     "uff-orbital-frequency-v1": Object.freeze({
@@ -26,7 +39,17 @@
       audibleLowHz: 20,
       audibleHighHz: 18000,
       secondsPerInterval: 0.05,
-      description: "Compute f = V/(2πR), then apply the smallest single integer-octave translation that places the complete frequency interval inside 20–18,000 Hz.",
+      frequencyInterpolation: "piecewise-linear in octave-translated frequency between adjacent radius-sorted observations over uniform source-index intervals",
+      endpointPolicy: "include both the first and final observations; frame_count = intervals * frames_per_interval + 1",
+      oscillator: Object.freeze({
+        function: "sine",
+        implementation: "qsol-deterministic-sine-poly17-v1",
+        phaseOriginRadians: 0,
+        phaseAccumulator: "binary64 radians wrapped to [0,2*pi) after every frame",
+        rangeReduction: "wrap to [-pi,pi], reflect to [-pi/2,pi/2], then evaluate the fixed odd polynomial",
+        coefficients: SINE_COEFFICIENTS
+      }),
+      description: "Compute f = V/(2πR), apply the smallest single integer-octave translation that places the complete frequency interval inside 20–18,000 Hz, then linearly interpolate the translated frequencies between adjacent radius-sorted observations.",
       claim: "Frequency ratios come from the physical orbital-frequency field. Radius traversal and the fixed observation profile are declared sonification conventions, not physical time."
     }),
     "direct-unit-signal-v1": Object.freeze({
@@ -41,6 +64,10 @@
     })
   });
 
+  function normalizeSignedZero(value) {
+    return Object.is(value, -0) ? 0 : value;
+  }
+
   function canonicalize(value) {
     if (Array.isArray(value)) return value.map(canonicalize);
     if (value && typeof value === "object") {
@@ -48,7 +75,10 @@
       Object.keys(value).sort().forEach((key) => { output[key] = canonicalize(value[key]); });
       return output;
     }
-    if (typeof value === "number" && !Number.isFinite(value)) throw new Error("Canonical JSON cannot contain non-finite numbers.");
+    if (typeof value === "number") {
+      if (!Number.isFinite(value)) throw new Error("Canonical JSON cannot contain non-finite numbers.");
+      return normalizeSignedZero(value);
+    }
     return value;
   }
 
@@ -152,9 +182,12 @@
   }
 
   function finiteNumber(value, label, rowIndex) {
+    if (value === null || value === undefined || (typeof value === "string" && value.trim() === "")) {
+      throw new Error(`${label} at row ${rowIndex + 1} is blank.`);
+    }
     const number = typeof value === "number" ? value : Number(String(value).trim());
     if (!Number.isFinite(number)) throw new Error(`${label} at row ${rowIndex + 1} is not finite.`);
-    return number;
+    return normalizeSignedZero(number);
   }
 
   function parseUffCurve(text) {
@@ -207,12 +240,26 @@
     if (!frequencies.length || frequencies.some((frequency) => !(frequency > 0) || !Number.isFinite(frequency))) throw new Error("Orbital frequencies must be finite and positive.");
     const minFrequency = Math.min(...frequencies);
     const maxFrequency = Math.max(...frequencies);
-    const minimumShift = Math.ceil(Math.log2(profile.audibleLowHz / minFrequency) - 1e-12);
-    const maximumShift = Math.floor(Math.log2(profile.audibleHighHz / maxFrequency) + 1e-12);
-    if (minimumShift > maximumShift) {
+    let shift = Math.ceil(Math.log2(profile.audibleLowHz / minFrequency));
+    let factor = 2 ** shift;
+    if (!(factor > 0) || !Number.isFinite(factor)) throw new Error("Octave translation is outside the supported numerical range.");
+
+    while (minFrequency * factor < profile.audibleLowHz) {
+      shift += 1;
+      factor *= 2;
+      if (!Number.isFinite(factor)) throw new Error("Octave translation is outside the supported numerical range.");
+    }
+    while (factor / 2 > 0 && minFrequency * (factor / 2) >= profile.audibleLowHz && maxFrequency * (factor / 2) <= profile.audibleHighHz) {
+      shift -= 1;
+      factor /= 2;
+    }
+
+    const translatedMin = minFrequency * factor;
+    const translatedMax = maxFrequency * factor;
+    if (translatedMin < profile.audibleLowHz || translatedMax > profile.audibleHighHz) {
       throw new Error(`No single integer-octave translation can place the full ${maxFrequency / minFrequency}× source-frequency span inside ${profile.audibleLowHz}–${profile.audibleHighHz} Hz.`);
     }
-    return minimumShift;
+    return shift;
   }
 
   function allocateMono(length) {
@@ -228,10 +275,40 @@
     return values[leftIndex] * (1 - fraction) + values[rightIndex] * fraction;
   }
 
+  function wrapPhase(phase) {
+    let wrapped = phase % TAU;
+    if (wrapped < 0) wrapped += TAU;
+    return normalizeSignedZero(wrapped);
+  }
+
+  function deterministicSine(phase) {
+    let x = wrapPhase(phase);
+    if (x > PI) x -= TAU;
+    if (x > HALF_PI) x = PI - x;
+    else if (x < -HALF_PI) x = -PI - x;
+    const x2 = x * x;
+    const polynomial = SINE_COEFFICIENTS[0] + x2 * (
+      SINE_COEFFICIENTS[1] + x2 * (
+        SINE_COEFFICIENTS[2] + x2 * (
+          SINE_COEFFICIENTS[3] + x2 * (
+            SINE_COEFFICIENTS[4] + x2 * (
+              SINE_COEFFICIENTS[5] + x2 * (
+                SINE_COEFFICIENTS[6] + x2 * (
+                  SINE_COEFFICIENTS[7] + x2 * SINE_COEFFICIENTS[8]
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+    return normalizeSignedZero(x * polynomial);
+  }
+
   function float64LeBuffer(values) {
     const arrayBuffer = new ArrayBuffer(values.length * 8);
     const view = new DataView(arrayBuffer);
-    for (let index = 0; index < values.length; index += 1) view.setFloat64(index * 8, values[index], true);
+    for (let index = 0; index < values.length; index += 1) view.setFloat64(index * 8, normalizeSignedZero(values[index]), true);
     return arrayBuffer;
   }
 
@@ -247,7 +324,7 @@
     view.setUint16(22, 1, true); view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 2, true);
     view.setUint16(32, 2, true); view.setUint16(34, 16, true); writeText(36, "data"); view.setUint32(40, dataBytes, true);
     for (let index = 0; index < samples.length; index += 1) {
-      const sample = Math.max(-1, Math.min(1, samples[index]));
+      const sample = Math.max(-1, Math.min(1, normalizeSignedZero(samples[index])));
       const quantized = Math.round(sample < 0 ? sample * 32768 : sample * 32767);
       view.setInt16(44 + index * 2, quantized, true);
       pcmView.setInt16(index * 2, quantized, true);
@@ -278,14 +355,14 @@
     const octaveFactor = 2 ** octaveShift;
     const audioFrequencies = physicalFrequencies.map((frequency) => frequency * octaveFactor);
     const framesPerInterval = Math.round(profile.sampleRate * profile.secondsPerInterval);
-    const frameCount = Math.max(1, (rows.length - 1) * framesPerInterval);
+    const frameCount = Math.max(1, (rows.length - 1) * framesPerInterval + 1);
     const buffer = allocateMono(frameCount);
-    let phase = 0;
+    let phase = profile.oscillator.phaseOriginRadians;
     for (let frame = 0; frame < frameCount; frame += 1) {
-      const position = frameCount === 1 ? 0 : frame / (frameCount - 1) * (audioFrequencies.length - 1);
+      const position = Math.min(audioFrequencies.length - 1, frame / framesPerInterval);
       const frequency = interpolate(audioFrequencies, position);
-      buffer.left[frame] = Math.sin(phase);
-      phase += TAU * frequency / profile.sampleRate;
+      buffer.left[frame] = deterministicSine(phase);
+      phase = wrapPhase(phase + TAU * frequency / profile.sampleRate);
     }
     const sourceDescriptor = {
       schema: "qsol.canonical-source.uff-radius-velocity/v1",
@@ -320,9 +397,10 @@
       transform: {
         physical_frequency_formula: "f_orbit_hz = (velocity_kms * 1000) / (2*pi*radius_kpc*kpc_meters)",
         kpc_meters: KPC_METERS,
-        octave_translation: { exponent_k: octaveShift, factor: octaveFactor, rule: "smallest integer k placing the complete source-frequency interval inside the profile audible window" },
-        traversal: { coordinate: "radius_kpc ascending", seconds_per_source_interval: profile.secondsPerInterval, physical_time_claim: false },
-        oscillator: "unit-amplitude sine with continuous integrated phase; no envelope, tuning system, scale, seed, effects, panning, normalization or mastering",
+        octave_translation: { exponent_k: octaveShift, factor: octaveFactor, rule: "smallest integer k placing the complete source-frequency interval inside the profile audible window, verified after translation" },
+        traversal: { coordinate: "radius_kpc ascending", seconds_per_source_interval: profile.secondsPerInterval, physical_time_claim: false, endpoint_policy: profile.endpointPolicy },
+        frequency_interpolation: profile.frequencyInterpolation,
+        oscillator: profile.oscillator,
         maximum_frequency_ratio_error: frequencyRatioError
       },
       identity: {
@@ -354,19 +432,20 @@
     const profile = PROFILES["direct-unit-signal-v1"];
     const rows = parseDirectSignal(text);
     const startTime = rows[0].time_s;
+    const relativeRows = rows.map((row) => ({ time_s: row.time_s - startTime, value: row.value }));
+    const duration = relativeRows[relativeRows.length - 1].time_s;
     const endTime = rows[rows.length - 1].time_s;
-    const duration = endTime - startTime;
     const frameCount = Math.floor(duration * profile.sampleRate + 1e-12) + 1;
     const buffer = allocateMono(frameCount);
     let sourceIndex = 0;
     for (let frame = 0; frame < frameCount; frame += 1) {
-      const time = Math.min(endTime, startTime + frame / profile.sampleRate);
-      while (sourceIndex + 1 < rows.length - 1 && rows[sourceIndex + 1].time_s < time) sourceIndex += 1;
-      const left = rows[sourceIndex];
-      const right = rows[Math.min(rows.length - 1, sourceIndex + 1)];
+      const time = Math.min(duration, frame / profile.sampleRate);
+      while (sourceIndex + 1 < relativeRows.length - 1 && relativeRows[sourceIndex + 1].time_s < time) sourceIndex += 1;
+      const left = relativeRows[sourceIndex];
+      const right = relativeRows[Math.min(relativeRows.length - 1, sourceIndex + 1)];
       const span = right.time_s - left.time_s;
       const fraction = span > 0 ? (time - left.time_s) / span : 0;
-      buffer.left[frame] = left.value * (1 - fraction) + right.value * fraction;
+      buffer.left[frame] = normalizeSignedZero(left.value * (1 - fraction) + right.value * fraction);
     }
     const sourceDescriptor = {
       schema: "qsol.canonical-source.direct-unit-signal/v1",
@@ -385,7 +464,7 @@
       source: { schema: sourceDescriptor.schema, observation_count: rows.length, source_sha256: sourceSha256, ordering: "time_s ascending", units: sourceDescriptor.units },
       transform: {
         mapping: "dimensionless source value -> waveform amplitude",
-        resampling: "piecewise-linear at fixed 48,000 Hz",
+        resampling: "piecewise-linear at fixed 48,000 Hz on time coordinates shifted to a zero-relative origin before frame generation",
         time_origin_shift_s: startTime,
         additions: "none: no oscillator, envelope, normalization, seed, effects, panning, scale, tuning or mastering"
       },
@@ -424,6 +503,7 @@
     parseDirectSignal,
     orbitalFrequencyHz,
     chooseOctaveShift,
+    deterministicSine,
     encodeWavMono16,
     sha256Hex,
     renderUffOrbital,
