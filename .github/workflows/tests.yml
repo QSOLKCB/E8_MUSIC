@@ -12,16 +12,49 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  javascript:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 20
       - name: Run regression suite
         run: npm test
-      - name: Check browser-only UI syntax
-        run: node --check js/canonical-ui.js
+      - name: Check JavaScript syntax
+        run: |
+          for file in js/*.js tools/*.js tests/*.js; do
+            node --check "$file"
+          done
+      - name: Recheck formal metadata and conformance vectors
+        run: npm run test:conformance
+
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install pinned elan
+        shell: bash
+        run: |
+          curl --proto '=https' --tlsv1.2 --location --fail --retry 3 \
+            --output /tmp/elan.tar.gz \
+            https://github.com/leanprover/elan/releases/download/v4.2.3/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo "df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2  /tmp/elan.tar.gz" | sha256sum --check --strict
+          tar --extract --gzip --file /tmp/elan.tar.gz --directory /tmp
+          /tmp/elan-init -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned formal dependencies and mathlib cache
+        working-directory: formal/lean
+        run: |
+          lake exe cache get \
+            Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic \
+            Mathlib.Data.Real.Archimedean \
+            Mathlib.Tactic.NormNum \
+            Mathlib.Tactic.Positivity \
+            Mathlib.Tactic.Ring
+      - name: Build all Lean modules
+        working-directory: formal/lean
+        run: lake build
